@@ -3,21 +3,27 @@ package tn.esprit.projet_pi.Controller;
 import jakarta.persistence.Entity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.projet_pi.Log.JwtService;
 import tn.esprit.projet_pi.Log.LoginRequest;
 import tn.esprit.projet_pi.Log.RegisterRequest;
+import tn.esprit.projet_pi.Service.EmailService;
 import tn.esprit.projet_pi.Service.UserService;
 import tn.esprit.projet_pi.entity.User;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
     private final UserService userService;
+    private final EmailService emailService;
 
-    public AuthController(UserService userService) {
+    public AuthController(UserService userService, EmailService emailService) {
         this.userService = userService;
+        this.emailService = emailService;
     }
 
     @PostMapping("/signup")
@@ -64,13 +70,61 @@ public class AuthController {
             return ResponseEntity.badRequest().body("User not found or update failed.");
         }
     }
+    /*
     @PostMapping("/forgot-password")
-    public ResponseEntity<String> forgotPassword(@RequestParam String email) {
+    public ResponseEntity<String> forgotPassword(@RequestBody String email) {
         boolean result = userService.generatePasswordResetToken(email);
         if (result) {
             return ResponseEntity.ok("Un lien de réinitialisation a été envoyé à votre e-mail.");
         } else {
             return ResponseEntity.badRequest().body("Aucun utilisateur trouvé avec cet e-mail.");
+        }
+    }
+
+     */
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestBody EmailRequest request) {
+        String email = request.getEmail();
+        JwtService jwtService = new JwtService();
+        User user = userService.getUserByEmail(email);
+        String token = jwtService.generateToken(user);
+        System.out.println("Email reçu dans la requête : '" + email + "'");
+
+        if (email == null || email.isBlank()) {
+            return ResponseEntity.badRequest().body("L'email est vide ou invalide.");
+        }
+
+        boolean result = userService.generatePasswordResetToken(email);
+        if (result) {
+            emailService.sendResetPasswordEmail(email, token);
+            return ResponseEntity.ok("Un lien de réinitialisation a été envoyé à votre e-mail.");
+
+        } else {
+            return ResponseEntity.badRequest().body("Aucun utilisateur trouvé avec cet e-mail.");
+        }
+    }
+
+    /**
+     * Endpoint pour réinitialiser le mot de passe avec un token.
+     */
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(@RequestParam String token, @RequestParam String newPassword) {
+        System.out.println("Received token: " + token);  // Debugging print to check if token is correct
+        boolean result = userService.resetPassword(token, newPassword);
+        if (result) {
+            return ResponseEntity.ok("Mot de passe réinitialisé avec succès.");
+        } else {
+            return ResponseEntity.badRequest().body("Token invalide ou expiré.");
+        }
+    }
+
+    @PostMapping("/test-email")
+    public ResponseEntity<String> testEmail() {
+        try {
+            emailService.sendResetPasswordEmail("benmassoudrayen7@gmail.com", "test-token");
+            return ResponseEntity.ok("Email envoyé avec succès !");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Erreur : " + e.getMessage());
         }
     }
 

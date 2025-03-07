@@ -3,14 +3,18 @@ package tn.esprit.projet_pi.Log;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.UserDetails;
 import tn.esprit.projet_pi.entity.User;
 
+import javax.crypto.SecretKey;
 import java.util.Date;
 
     @Service
     public class JwtService {
+
+        private static final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
         private static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A713474375367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
         private static final long EXPIRATION_TIME = 86400000; // 1 jour
@@ -22,8 +26,8 @@ import java.util.Date;
                     .claim("nom", user.getNom())  // Ajout du nom
                     .claim("role", user.getRole().name()) // Ajoutez un claim pour le rôle
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                    .signWith(SignatureAlgorithm.HS512, SECRET)
+                    .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))  // Expiration à 24h
+                    .signWith(SECRET_KEY)
                     .compact();
         }
 
@@ -47,6 +51,6 @@ import java.util.Date;
 
         // Extraire les claims du token
         private Claims extractClaims(String token) {
-            return Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
+            return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
         }
     }

@@ -12,6 +12,7 @@ public interface UserInterface {
     public User getUserById(Long id);
     public User getUserByEmail(String email);
     public User getUserByUsername(String username);
+
     public boolean updateUser(Long id, User updatedUser);
     public boolean deleteUser(Long id);
     public boolean addUser(User user);
