@@ -30,8 +30,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/user_del/**").permitAll()
-                        /*.requestMatchers("/api/users/get").hasRole("ADMIN")  // Autorisation uniquement pour les utilisateurs avec le rôle ADMIN
-                        .requestMatchers("/api/users/accept/{userId}").hasAnyRole("ADMIN", "USER")
+                        .requestMatchers("/api/reclamations/**").permitAll()  // Autorisation uniquement pour les utilisateurs avec le rôle ADMIN
+                        /*.requestMatchers("/api/users/accept/{userId}").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/users/block/{userId}").hasRole("ADMIN")
                         .requestMatchers("/api/stage/uploadFile").hasRole("ADMIN")
                         .requestMatchers("/api/stage/lettre/{id}").hasRole("USER")

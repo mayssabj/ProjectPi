@@ -168,6 +168,15 @@ public class UserService implements UserInterface{
         return false;
     }
 
+
+    public User findByVerificationToken(String token) {
+        return userRepo.findByVerificationToken(token);
+    }
+
+    public void saveUser(User user) {
+        userRepo.save(user);
+    }
+
     /*public boolean generatePasswordResetToken(String email) {
         Optional<User> userOpt = userRepo.findByEmail(email);
         if (userOpt.isPresent()) {

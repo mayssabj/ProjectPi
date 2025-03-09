@@ -22,6 +22,18 @@ public class EmailService {
         System.out.println("Email envoyé à : " + toEmail);
     }
 
+    public void sendVerificationEmail(String toEmail, String token) {
+        String verificationUrl = "http://localhost:8081/api/auth/verify-email?token=" + token;
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(toEmail);
+        message.setSubject("Vérification de votre e-mail");
+        message.setText("Cliquez sur le lien suivant pour vérifier votre e-mail : " + verificationUrl);
+
+        mailSender.send(message);
+        System.out.println("Email de vérification envoyé à : " + toEmail);
+    }
+
 
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;

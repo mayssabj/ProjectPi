@@ -34,8 +34,15 @@ public class AuthController {
         user.setMdp(request.getMdp());
         user.setRole(request.getRole());
         user.setAge(request.getAge());
+
+        String verificationToken = UUID.randomUUID().toString();
+        user.setVerificationToken(verificationToken);
+
         User registeredUser = userService.register(user);
-        return ResponseEntity.ok(registeredUser);
+        emailService.sendVerificationEmail(user.getEmail(), verificationToken);
+
+        return ResponseEntity.ok("Utilisateur inscrit avec succès. Veuillez vérifier votre e-mail.");
+
     }
     @PostMapping("/login")
     public ResponseEntity<?> signin(@RequestBody LoginRequest loginRequest) {
@@ -126,6 +133,20 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Erreur : " + e.getMessage());
         }
+    }
+
+    @GetMapping("/verify-email")
+    public ResponseEntity<?> verifyEmail(@RequestParam String token) {
+        User user = userService.findByVerificationToken(token);
+        if (user == null) {
+            return ResponseEntity.badRequest().body("Token invalide !");
+        }
+
+        user.setIs_verified(true);
+        user.setVerificationToken(null);
+        userService.saveUser(user);
+
+        return ResponseEntity.ok("Email vérifié avec succès !");
     }
 
 

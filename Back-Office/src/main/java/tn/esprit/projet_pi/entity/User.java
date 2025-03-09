@@ -30,6 +30,15 @@ public class User {
     @Column(unique = true)
     private String resetToken;
     private LocalDateTime resetTokenExpiry;
+    private String verificationToken;
+
+    public String getVerificationToken() {
+        return verificationToken;
+    }
+
+    public void setVerificationToken(String verificationToken) {
+        this.verificationToken = verificationToken;
+    }
 
     public LocalDateTime getResetTokenExpiry() {
         return resetTokenExpiry;
