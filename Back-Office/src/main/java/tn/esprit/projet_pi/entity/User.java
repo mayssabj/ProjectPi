@@ -28,6 +28,9 @@ public class User {
     @Column(unique = true)
     private String resetToken;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Abonnement abonnement;
+
     public String getResetToken() {
         return resetToken;
     }
@@ -132,6 +135,13 @@ public class User {
         this.is_verified = is_verified;
     }
 
+    public Abonnement getAbonnement() {
+        return abonnement;
+    }
+
+    public void setAbonnement(Abonnement abonnement) {
+        this.abonnement = abonnement;
+    }
 
     public User() {}
 }
