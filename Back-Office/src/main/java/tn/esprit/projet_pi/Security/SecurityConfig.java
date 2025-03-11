@@ -2,6 +2,7 @@ package tn.esprit.projet_pi.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,6 +31,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/user_del/**").permitAll()
+                        .requestMatchers("/error", "/error/**").permitAll()
+                        //.requestMatchers(HttpMethod.POST, "/produit/add-produit").permitAll()
+                         .requestMatchers("/produit/**").permitAll()
+                        //.requestMatchers(HttpMethod.POST, "/produit/add-produit").permitAll()
+                        /*.requestMatchers(HttpMethod.POST).authenticated()
                         /*.requestMatchers("/api/users/get").hasRole("ADMIN")  // Autorisation uniquement pour les utilisateurs avec le rôle ADMIN
                         .requestMatchers("/api/users/accept/{userId}").hasAnyRole("ADMIN", "USER")
                         .requestMatchers("/api/users/block/{userId}").hasRole("ADMIN")
