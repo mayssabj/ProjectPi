@@ -1,5 +1,6 @@
 package tn.esprit.projet_pi.Service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.projet_pi.Repository.UserRepo;
@@ -37,6 +38,7 @@ public class ReclamationService {
         return reclamationRepository.save(reclamation);
     }
 
+    @Transactional
     public void deleteReclamation(Long id) {
         reclamationRepository.deleteById(id);
     }
