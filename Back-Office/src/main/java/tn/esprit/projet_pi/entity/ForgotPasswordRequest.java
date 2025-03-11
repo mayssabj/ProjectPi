@@ -1,6 +1,5 @@
 package tn.esprit.projet_pi.entity;
 
-
 public class ForgotPasswordRequest {
     public String email;
 
