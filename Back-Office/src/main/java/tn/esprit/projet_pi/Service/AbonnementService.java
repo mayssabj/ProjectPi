@@ -5,32 +5,60 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.projet_pi.Repository.AbonnementRepository;
 import tn.esprit.projet_pi.Repository.UserRepo;
-import tn.esprit.projet_pi.entity.Abonnement;
-import tn.esprit.projet_pi.entity.User;
+import tn.esprit.projet_pi.entity.*;
 import tn.esprit.projet_pi.interfaces.IAbonnement;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Service
 public class AbonnementService implements IAbonnement {
 
     final AbonnementRepository abonnementRepository;
     final UserRepo userRepo;
+    TransactionService transactionService;
 
     @Autowired
-    public AbonnementService(AbonnementRepository abonnementRepository, UserRepo userRepo) {
+    public AbonnementService(AbonnementRepository abonnementRepository, UserRepo userRepo, TransactionService transactionService) {
         this.abonnementRepository = abonnementRepository;
         this.userRepo = userRepo;
+        this.transactionService = transactionService;
     }
 
     @Override
     public Abonnement createAbonnementByUser(Abonnement abonnement, Long userId) {
         User user = userRepo.findByidUser(userId)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé avec l'ID: " + userId));
+
         if (user.getAbonnement() != null) {
             throw new RuntimeException("L'utilisateur a déjà un abonnement.");
         }
+
+        // Set the start date
+        LocalDate dateDebut = LocalDate.now();
+        abonnement.setDateDebut(dateDebut);
+
+        // Calculate the end date based on the type of subscription
+        LocalDate dateFin = calculateDateFin(dateDebut, abonnement.getTypeAbonnement());
+        abonnement.setDateFin(dateFin);
+
         abonnement.setUser(user);
         user.setAbonnement(abonnement);
-        return abonnementRepository.save(abonnement);
+        Abonnement newAbonnement = abonnementRepository.save(abonnement);
+
+        // Create and save the transaction for this abonnement
+        Transaction transaction = new Transaction();
+        transaction.setAbonnement(newAbonnement);
+        transaction.setStatus(TransactionStatus.PENDING);
+        transaction.setModePaiement("Carte Bancaire");
+        transaction.setDateTransaction(LocalDateTime.now());
+        transaction.setReferencePaiement("REF-" + newAbonnement.getIdAbonnement());
+        transaction.setDetails("Transaction liée à l'abonnement de l'utilisateur");
+
+        // Save the transaction using the transactionService
+        transactionService.createTransaction(transaction);
+
+        return newAbonnement;
     }
 
 
@@ -91,5 +119,20 @@ public class AbonnementService implements IAbonnement {
             return abonnement;
         }
         return null;
+    }
+
+    private LocalDate calculateDateFin(LocalDate dateDebut, TypeAbonnement typeAbonnement) {
+        switch (typeAbonnement) {
+            case MENSUEL:
+                return dateDebut.plusMonths(1);
+            case TRIMESTRIEL:
+                return dateDebut.plusMonths(3);
+            case SEMESTRIEL:
+                return dateDebut.plusMonths(6);
+            case ANNUEL:
+                return dateDebut.plusYears(1);
+            default:
+                throw new IllegalArgumentException("Type d'abonnement inconnu: " + typeAbonnement);
+        }
     }
 }

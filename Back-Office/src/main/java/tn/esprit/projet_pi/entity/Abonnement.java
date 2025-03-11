@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Abonnement {
@@ -24,6 +25,10 @@ public class Abonnement {
     private Double cout;
     private Boolean enPeriodeEssai;
     private LocalDate dateFinEssai;
+
+    @OneToMany(mappedBy = "abonnement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Transaction> transactions;
 
     @OneToOne(mappedBy = "abonnement")
     @ToString.Exclude
@@ -108,5 +113,13 @@ public class Abonnement {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }
