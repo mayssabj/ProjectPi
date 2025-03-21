@@ -1,6 +1,6 @@
 package tn.esprit.projet_pi.Service;
 
-import lombok.AllArgsConstructor;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.projet_pi.Repository.AbonnementRepository;
@@ -17,15 +17,18 @@ public class AbonnementService implements IAbonnement {
     final AbonnementRepository abonnementRepository;
     final UserRepo userRepo;
     TransactionService transactionService;
+    EmailAbonnementService emailService;
 
     @Autowired
-    public AbonnementService(AbonnementRepository abonnementRepository, UserRepo userRepo, TransactionService transactionService) {
+    public AbonnementService(AbonnementRepository abonnementRepository, UserRepo userRepo, TransactionService transactionService, EmailAbonnementService emailService) {
         this.abonnementRepository = abonnementRepository;
         this.userRepo = userRepo;
         this.transactionService = transactionService;
+        this.emailService = emailService;
     }
 
     @Override
+    @Transactional
     public Abonnement createAbonnementByUser(Abonnement abonnement, Long userId) {
         User user = userRepo.findByidUser(userId)
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé avec l'ID: " + userId));
@@ -37,14 +40,18 @@ public class AbonnementService implements IAbonnement {
         // Set the start date
         LocalDate dateDebut = LocalDate.now();
         abonnement.setDateDebut(dateDebut);
+        abonnement.setAbonnementStatus(AbonnementStatus.PENDING);
+        abonnement.setCout(calculateCout(abonnement.getTypeAbonnement()));
+        abonnement.setRemainingDays(abonnement.getRemainingDays());
 
-        // Calculate the end date based on the type of subscription
+        // Calculate the end date based on the type of subscriptionP
         LocalDate dateFin = calculateDateFin(dateDebut, abonnement.getTypeAbonnement());
         abonnement.setDateFin(dateFin);
 
         abonnement.setUser(user);
         user.setAbonnement(abonnement);
         Abonnement newAbonnement = abonnementRepository.save(abonnement);
+        emailService.sendConfirmationEmail(user, newAbonnement);
 
         // Create and save the transaction for this abonnement
         Transaction transaction = new Transaction();
@@ -55,15 +62,13 @@ public class AbonnementService implements IAbonnement {
         transaction.setReferencePaiement("REF-" + newAbonnement.getIdAbonnement());
         transaction.setDetails("Transaction liée à l'abonnement de l'utilisateur");
 
-        // Save the transaction using the transactionService
         transactionService.createTransaction(transaction);
-
         return newAbonnement;
     }
 
-
     @Override
     public void deleteAbonnement(Long userId, Long idAbonnement) {
+        checkIfAbonnementBlocked(idAbonnement);
         Abonnement abonnement = abonnementRepository.findById(idAbonnement).orElse(null);
         if (abonnement != null && abonnement.getUser().getId_user().equals(userId)) {
             abonnementRepository.delete(abonnement);
@@ -79,6 +84,11 @@ public class AbonnementService implements IAbonnement {
         // Check if the abonnement belongs to the user
         if (!existingAbonnement.getUser().getId_user().equals(userId)) {
             throw new RuntimeException("Abonnement does not belong to user with ID: " + userId);
+        }
+
+        // Check if the abonnement is blocked
+        if (existingAbonnement.getBlocked()) {
+            throw new RuntimeException("Abonnement is blocked. No further actions can be performed.");
         }
 
         // Update only non-null fields from the updatedAbonnement
@@ -100,20 +110,14 @@ public class AbonnementService implements IAbonnement {
         if (updatedAbonnement.getCout() != null) {
             existingAbonnement.setCout(updatedAbonnement.getCout());
         }
-        if (updatedAbonnement.getEnPeriodeEssai() != null) {
-            existingAbonnement.setEnPeriodeEssai(updatedAbonnement.getEnPeriodeEssai());
-        }
-        if (updatedAbonnement.getDateFinEssai() != null) {
-            existingAbonnement.setDateFinEssai(updatedAbonnement.getDateFinEssai());
-        }
 
         // Save and return the updated abonnement
         return abonnementRepository.save(existingAbonnement);
     }
 
-
     @Override
     public Abonnement getAbonnementById(Long userId, Long idAbonnement) {
+        checkIfAbonnementBlocked(idAbonnement);
         Abonnement abonnement = abonnementRepository.findById(idAbonnement).orElse(null);
         if (abonnement != null && abonnement.getUser().getId_user().equals(userId)) {
             return abonnement;
@@ -122,17 +126,31 @@ public class AbonnementService implements IAbonnement {
     }
 
     private LocalDate calculateDateFin(LocalDate dateDebut, TypeAbonnement typeAbonnement) {
-        switch (typeAbonnement) {
-            case MENSUEL:
-                return dateDebut.plusMonths(1);
-            case TRIMESTRIEL:
-                return dateDebut.plusMonths(3);
-            case SEMESTRIEL:
-                return dateDebut.plusMonths(6);
-            case ANNUEL:
-                return dateDebut.plusYears(1);
-            default:
-                throw new IllegalArgumentException("Type d'abonnement inconnu: " + typeAbonnement);
+        return switch (typeAbonnement) {
+            case MENSUEL -> dateDebut.plusMonths(1);
+            case TRIMESTRIEL -> dateDebut.plusMonths(3);
+            case SEMESTRIEL -> dateDebut.plusMonths(6);
+            case ANNUEL -> dateDebut.plusYears(1);
+        };
+    }
+
+    private Double calculateCout(TypeAbonnement typeAbonnement) {
+        return switch (typeAbonnement) {
+            case MENSUEL -> 30.0;       // Monthly subscription
+            case TRIMESTRIEL -> 80.0;   // 3 months (save 10Dt)
+            case SEMESTRIEL -> 150.0;   // 6 months (save 30Dt)
+            case ANNUEL -> 280.0;       // Annual (save 80Dt)
+        };
+    }
+
+    // Prevent actions if the abonnement is blocked
+    public void checkIfAbonnementBlocked(Long abonnementId) {
+        Abonnement abonnement = abonnementRepository.findById(abonnementId)
+                .orElseThrow(() -> new RuntimeException("Abonnement not found with ID: " + abonnementId));
+
+        if (abonnement.getBlocked()) {
+            throw new RuntimeException("Abonnement is blocked. No further actions can be performed.");
         }
     }
+
 }

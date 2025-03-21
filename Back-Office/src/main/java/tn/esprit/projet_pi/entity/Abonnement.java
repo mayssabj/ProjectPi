@@ -2,9 +2,10 @@ package tn.esprit.projet_pi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Entity
@@ -19,21 +20,49 @@ public class Abonnement {
 
     @Enumerated(EnumType.STRING)
     private AbonnementStatus abonnementStatus;
-    private Boolean renouvellementAutomatique;
+
+    private Boolean renouvellementAutomatique = false;
     private LocalDate dateDebut;
     private LocalDate dateFin;
     private Double cout;
-    private Boolean enPeriodeEssai;
-    private LocalDate dateFinEssai;
+    private long remainingDays;
+
+    @Column(unique = true)
+    private String confirmationCode;
+
+    private LocalDateTime codeExpiration;
+    private Boolean isBlocked = false;
+    private Boolean isConfirmed = false;
 
     @OneToMany(mappedBy = "abonnement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Transaction> transactions;
 
     @OneToOne(mappedBy = "abonnement")
-    @ToString.Exclude
     @JsonIgnore
     private User user;
+
+    public long getRemainingDays() {
+        return dateFin != null ?
+                ChronoUnit.DAYS.between(LocalDate.now(), dateFin) : 0;
+    }
+
+    @PrePersist
+    private void generateConfirmationCode() {
+        this.confirmationCode = generateUniqueCode();
+        this.codeExpiration = LocalDateTime.now().plusHours(24);
+    }
+
+    private String generateUniqueCode() {
+        return "CONF-" +
+                LocalDateTime.now().hashCode() +
+                "-" +
+                (long) (Math.random() * 1000000);
+    }
+
+    public boolean isCodeExpired() {
+        return LocalDateTime.now().isAfter(codeExpiration);
+    }
 
     public Long getIdAbonnement() {
         return idAbonnement;
@@ -67,20 +96,20 @@ public class Abonnement {
         this.renouvellementAutomatique = renouvellementAutomatique;
     }
 
-    public LocalDate getDateFin() {
-        return dateFin;
-    }
-
-    public void setDateFin(LocalDate dateFin) {
-        this.dateFin = dateFin;
-    }
-
     public LocalDate getDateDebut() {
         return dateDebut;
     }
 
     public void setDateDebut(LocalDate dateDebut) {
         this.dateDebut = dateDebut;
+    }
+
+    public LocalDate getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(LocalDate dateFin) {
+        this.dateFin = dateFin;
     }
 
     public Double getCout() {
@@ -91,20 +120,44 @@ public class Abonnement {
         this.cout = cout;
     }
 
-    public Boolean getEnPeriodeEssai() {
-        return enPeriodeEssai;
+    public String getConfirmationCode() {
+        return confirmationCode;
     }
 
-    public void setEnPeriodeEssai(Boolean enPeriodeEssai) {
-        this.enPeriodeEssai = enPeriodeEssai;
+    public void setConfirmationCode(String confirmationCode) {
+        this.confirmationCode = confirmationCode;
     }
 
-    public LocalDate getDateFinEssai() {
-        return dateFinEssai;
+    public LocalDateTime getCodeExpiration() {
+        return codeExpiration;
     }
 
-    public void setDateFinEssai(LocalDate dateFinEssai) {
-        this.dateFinEssai = dateFinEssai;
+    public void setCodeExpiration(LocalDateTime codeExpiration) {
+        this.codeExpiration = codeExpiration;
+    }
+
+    public Boolean getBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        isBlocked = blocked;
+    }
+
+    public Boolean getConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setConfirmed(Boolean confirmed) {
+        isConfirmed = confirmed;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public User getUser() {
@@ -115,11 +168,8 @@ public class Abonnement {
         this.user = user;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public void setRemainingDays(long remainingDays) {
+        this.remainingDays = remainingDays;
     }
 
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
-    }
 }
