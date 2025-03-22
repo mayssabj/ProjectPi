@@ -56,4 +56,15 @@ public class AbonnementController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    //confirm the abonnement
+    @PutMapping("/confirm/{confirmationCode}")
+    public ResponseEntity<Abonnement> confirmAbonnement(@PathVariable String confirmationCode) {
+        try {
+            Abonnement confirmedAbonnement = abonnementService.confirmAbonnement(confirmationCode);
+            return new ResponseEntity<>(confirmedAbonnement, HttpStatus.OK);
+        } catch (RuntimeException e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

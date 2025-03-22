@@ -43,6 +43,9 @@ public class AbonnementService implements IAbonnement {
         abonnement.setAbonnementStatus(AbonnementStatus.PENDING);
         abonnement.setCout(calculateCout(abonnement.getTypeAbonnement()));
         abonnement.setRemainingDays(abonnement.getRemainingDays());
+        abonnement.setConfirmed(abonnement.getConfirmed());
+        abonnement.setBlocked(abonnement.getBlocked());
+
 
         // Calculate the end date based on the type of subscriptionP
         LocalDate dateFin = calculateDateFin(dateDebut, abonnement.getTypeAbonnement());
@@ -151,6 +154,37 @@ public class AbonnementService implements IAbonnement {
         if (abonnement.getBlocked()) {
             throw new RuntimeException("Abonnement is blocked. No further actions can be performed.");
         }
+    }
+
+    @Transactional
+    public Abonnement confirmAbonnement(String confirmationCode) {
+        Abonnement abonnement = abonnementRepository.findByConfirmationCode(confirmationCode)
+                .orElseThrow(() -> new RuntimeException("Invalid confirmation code"));
+
+        if (abonnement.isCodeExpired()) {
+            throw new RuntimeException("Confirmation code has expired");
+        }
+
+        abonnement.setConfirmed(true);
+        abonnement.setAbonnementStatus(AbonnementStatus.ACTIVE);
+        abonnementRepository.save(abonnement);
+        sendActivationEmail(abonnement);
+        return abonnement;
+    }
+
+    private void sendActivationEmail(Abonnement abonnement) {
+        String userEmail = abonnement.getUser().getEmail();
+        String subject = "Your Subscription is Now Active!";
+        String text = String.format(
+                "Dear %s,\n\n" +
+                        "Your subscription has been successfully activated!\n\n" +
+                        "Thank you for being a part of our service.\n\n" +
+                        "Best regards,\nYour Service Team",
+                abonnement.getUser().getNom()
+        );
+
+        // Send the email using the EmailAbonnementService
+        emailService.sendGenericEmail(userEmail, subject, text);
     }
 
 }

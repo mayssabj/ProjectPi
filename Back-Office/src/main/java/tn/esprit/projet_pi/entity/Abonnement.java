@@ -27,6 +27,7 @@ public class Abonnement {
     private Double cout;
     private long remainingDays;
 
+
     @Column(unique = true)
     private String confirmationCode;
 
@@ -43,9 +44,13 @@ public class Abonnement {
     private User user;
 
     public long getRemainingDays() {
-        return dateFin != null ?
-                ChronoUnit.DAYS.between(LocalDate.now(), dateFin) : 0;
+        if (dateFin == null) {
+            return 0;
+        }
+        long days = ChronoUnit.DAYS.between(LocalDate.now(), dateFin);
+        return Math.max(days, 0); // Ensures no negative days
     }
+
 
     @PrePersist
     private void generateConfirmationCode() {
@@ -168,8 +173,8 @@ public class Abonnement {
         this.user = user;
     }
 
+
     public void setRemainingDays(long remainingDays) {
         this.remainingDays = remainingDays;
     }
-
 }
