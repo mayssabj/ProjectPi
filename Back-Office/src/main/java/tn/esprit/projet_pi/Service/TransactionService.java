@@ -63,9 +63,7 @@ public class TransactionService implements ITransaction {
             if (updatedTransaction.getStatus() != null) {
                 existingTransaction.setStatus(updatedTransaction.getStatus());
             }
-            if (updatedTransaction.getModePaiement() != null) {
-                existingTransaction.setModePaiement(updatedTransaction.getModePaiement());
-            }
+
             if (updatedTransaction.getReferencePaiement() != null) {
                 existingTransaction.setReferencePaiement(updatedTransaction.getReferencePaiement());
             }

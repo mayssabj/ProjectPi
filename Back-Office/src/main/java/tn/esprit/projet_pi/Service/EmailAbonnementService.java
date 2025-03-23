@@ -22,6 +22,7 @@ public class EmailAbonnementService {
         message.setTo(user.getEmail());
         message.setSubject("Confirm Your Subscription");
 
+        String confirmationLink = "http://localhost:8081/api/abonnement/confirm/" + abonnement.getConfirmationCode();
         String text = String.format(
                 "Dear %s,\n\n" +
                         "Thank you for subscribing to our service!\n\n" +
@@ -31,7 +32,8 @@ public class EmailAbonnementService {
                         "Best regards,\nYour Service Team",
                 user.getNom(),
                 abonnement.getConfirmationCode(),
-                abonnement.getCodeExpiration().toString()
+                abonnement.getCodeExpiration().toString(),
+                confirmationLink
         );
 
         message.setText(text);
@@ -65,4 +67,5 @@ public class EmailAbonnementService {
         message.setText(messageContent);
         javaMailSender.send(message);
     }
+
 }

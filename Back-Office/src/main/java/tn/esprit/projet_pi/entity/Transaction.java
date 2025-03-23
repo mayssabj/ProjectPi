@@ -1,5 +1,6 @@
 package tn.esprit.projet_pi.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,16 +22,16 @@ public class Transaction {
 
     private Double montant;
 
+
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
-    private String modePaiement; // Ex: "Carte Bancaire", "PayPal"
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTransaction;
 
-    private String referencePaiement; // ID unique généré par le prestataire de paiement (Stripe, PayPal...)
+    private String referencePaiement;
 
-    private String details; // Informations supplémentaires sur la transaction
+    private String details;
 
     public Long getIdTransaction() {
         return idTransaction;
@@ -62,14 +63,6 @@ public class Transaction {
 
     public void setStatus(TransactionStatus status) {
         this.status = status;
-    }
-
-    public String getModePaiement() {
-        return modePaiement;
-    }
-
-    public void setModePaiement(String modePaiement) {
-        this.modePaiement = modePaiement;
     }
 
     public LocalDateTime getDateTransaction() {

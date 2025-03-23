@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.projet_pi.Repository.AbonnementRepository;
+import tn.esprit.projet_pi.Repository.TransactionRepository;
 import tn.esprit.projet_pi.Repository.UserRepo;
 import tn.esprit.projet_pi.entity.*;
 import tn.esprit.projet_pi.interfaces.IAbonnement;
@@ -16,15 +17,17 @@ public class AbonnementService implements IAbonnement {
 
     final AbonnementRepository abonnementRepository;
     final UserRepo userRepo;
+    private final TransactionRepository transactionRepository;
     TransactionService transactionService;
     EmailAbonnementService emailService;
 
     @Autowired
-    public AbonnementService(AbonnementRepository abonnementRepository, UserRepo userRepo, TransactionService transactionService, EmailAbonnementService emailService) {
+    public AbonnementService(AbonnementRepository abonnementRepository, UserRepo userRepo, TransactionService transactionService, EmailAbonnementService emailService, TransactionRepository transactionRepository) {
         this.abonnementRepository = abonnementRepository;
         this.userRepo = userRepo;
         this.transactionService = transactionService;
         this.emailService = emailService;
+        this.transactionRepository = transactionRepository;
     }
 
     @Override
@@ -60,10 +63,10 @@ public class AbonnementService implements IAbonnement {
         Transaction transaction = new Transaction();
         transaction.setAbonnement(newAbonnement);
         transaction.setStatus(TransactionStatus.PENDING);
-        transaction.setModePaiement("Carte Bancaire");
-        transaction.setDateTransaction(LocalDateTime.now());
+        transaction.setMontant(abonnement.getCout());
+        transaction.setDateTransaction(LocalDateTime.now().withNano(0));
         transaction.setReferencePaiement("REF-" + newAbonnement.getIdAbonnement());
-        transaction.setDetails("Transaction liée à l'abonnement de l'utilisateur");
+        transaction.setDetails("Transaction liée à l'abonnement de l'utilisateur" + abonnement.getTypeAbonnement() + " et montant: " + abonnement.getCout());
 
         transactionService.createTransaction(transaction);
         return newAbonnement;
@@ -164,13 +167,27 @@ public class AbonnementService implements IAbonnement {
         if (abonnement.isCodeExpired()) {
             throw new RuntimeException("Confirmation code has expired");
         }
-
+        // Confirm the abonnement
         abonnement.setConfirmed(true);
         abonnement.setAbonnementStatus(AbonnementStatus.ACTIVE);
         abonnementRepository.save(abonnement);
         sendActivationEmail(abonnement);
+
+        // Create and save the transaction
+        Transaction transaction = new Transaction();
+        transaction.setAbonnement(abonnement);
+        transaction.setStatus(TransactionStatus.ACTIVE);
+        transaction.setDateTransaction(LocalDateTime.now());
+        transaction.setMontant(abonnement.getCout());
+        transaction.setReferencePaiement("REF-" + abonnement.getIdAbonnement());
+        transaction.setDetails("Abonnement confirmé et actif pour l'utilisateur " + abonnement.getUser().getNom());
+
+        // Save using the transaction repository
+        transactionRepository.save(transaction);
+
         return abonnement;
     }
+
 
     private void sendActivationEmail(Abonnement abonnement) {
         String userEmail = abonnement.getUser().getEmail();
