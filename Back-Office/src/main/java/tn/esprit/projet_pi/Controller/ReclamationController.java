@@ -3,6 +3,7 @@ package tn.esprit.projet_pi.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.projet_pi.Service.EmailService;
 import tn.esprit.projet_pi.Service.ReclamationService;
 import tn.esprit.projet_pi.entity.Reclamation;
 import tn.esprit.projet_pi.entity.User;

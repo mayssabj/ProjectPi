@@ -1,8 +1,12 @@
 package tn.esprit.projet_pi.Service;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import tn.esprit.projet_pi.entity.Reclamation;
 
 @Service
 public class EmailService {
@@ -34,9 +38,30 @@ public class EmailService {
         System.out.println("Email de vérification envoyé à : " + toEmail);
     }
 
+    public void sendReclamationResponse(String recipientEmail, String subject, String message) {
+        if (recipientEmail == null || recipientEmail.trim().isEmpty()) {
+            throw new IllegalArgumentException("Recipient email cannot be null or empty");
+        }
+
+        MimeMessage mimeMessage = mailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+            helper.setTo(recipientEmail); // This is where the error occurs
+            helper.setSubject(subject);
+            helper.setText(message, true);
+
+            mailSender.send(mimeMessage);
+        } catch (MessagingException e) {
+            throw new RuntimeException("Failed to send email", e);
+        }
+    }
+
+
 
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
+    public void sendReclamationResponse(Reclamation savedReclamation) {
+    }
 }

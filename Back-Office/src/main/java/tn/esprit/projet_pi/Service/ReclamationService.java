@@ -14,11 +14,17 @@ import java.util.List;
 public class ReclamationService {
     @Autowired
     private ReclamationRepository reclamationRepository;
+    @Autowired
+    private EmailService emailService;
 
 
 
     public Reclamation createReclamation(Reclamation reclamation) {
-        return reclamationRepository.save(reclamation);
+        Reclamation savedReclamation = reclamationRepository.save(reclamation);
+
+        emailService.sendReclamationResponse(savedReclamation);
+
+        return savedReclamation;
     }
 
     public List<Reclamation> getAllReclamations() {
