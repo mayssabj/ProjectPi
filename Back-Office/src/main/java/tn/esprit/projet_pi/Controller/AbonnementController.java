@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.projet_pi.Service.AbonnementService;
 import tn.esprit.projet_pi.entity.Abonnement;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/abonnement")
 public class AbonnementController {
@@ -66,5 +68,18 @@ public class AbonnementController {
         } catch (RuntimeException e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    //reports
+    @GetMapping("/report")
+    public ResponseEntity<Map<String, Object>> getSubscriptionReport() {
+        Map<String, Object> report = abonnementService.getSubscriptionReport();
+        return ResponseEntity.ok(report);
+    }
+
+    @GetMapping("/types-and-costs")
+    public ResponseEntity<Map<String, Double>> getSubscriptionTypesAndCosts() {
+        Map<String, Double> typesAndCosts = abonnementService.getSubscriptionTypesAndCosts();
+        return ResponseEntity.ok(typesAndCosts);
     }
 }

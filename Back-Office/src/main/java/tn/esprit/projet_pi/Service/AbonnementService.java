@@ -11,6 +11,9 @@ import tn.esprit.projet_pi.interfaces.IAbonnement;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class AbonnementService implements IAbonnement {
@@ -202,6 +205,41 @@ public class AbonnementService implements IAbonnement {
 
         // Send the email using the EmailAbonnementService
         emailService.sendGenericEmail(userEmail, subject, text);
+    }
+
+    //reports and statistics on subscriptions
+    public Map<String, Object> getSubscriptionReport() {
+        Map<String, Object> report = new HashMap<>();
+        report.put("activeSubscriptions", abonnementRepository.countActiveSubscriptions());
+        report.put("pendingSubscriptions", abonnementRepository.countPendingSubscriptions());
+        report.put("expiredSubscriptions", abonnementRepository.countExpiredSubscriptions());
+        report.put("totalRevenue", abonnementRepository.calculateTotalRevenue());
+
+        // Popular Subscriptions
+        List<Object[]> popularTypes = abonnementRepository.countBySubscriptionType();
+        Map<String, Long> subscriptionTypeCount = new HashMap<>();
+        for (Object[] result : popularTypes) {
+            subscriptionTypeCount.put((String) result[0], (Long) result[1]);
+        }
+        report.put("subscriptionTypes", subscriptionTypeCount);
+
+        // Monthly Growth
+        List<Object[]> monthlyGrowth = abonnementRepository.countMonthlySubscriptions();
+        Map<String, Long> monthlyData = new HashMap<>();
+        for (Object[] result : monthlyGrowth) {
+            monthlyData.put("Month " + result[0], (Long) result[1]);
+        }
+        report.put("monthlyGrowth", monthlyData);
+
+        return report;
+    }
+
+    public Map<String, Double> getSubscriptionTypesAndCosts() {
+        Map<String, Double> subscriptionTypes = new HashMap<>();
+        for (TypeAbonnement type : TypeAbonnement.values()) {
+            subscriptionTypes.put(type.name(), calculateCout(type));
+        }
+        return subscriptionTypes;
     }
 
 }
