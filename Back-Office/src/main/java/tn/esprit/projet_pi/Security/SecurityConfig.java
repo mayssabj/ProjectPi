@@ -2,7 +2,6 @@ package tn.esprit.projet_pi.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,10 +33,24 @@ public class SecurityConfig {
                         .requestMatchers("/error", "/error/**").permitAll()
                         //.requestMatchers(HttpMethod.POST, "/produit/add-produit").permitAll()
                          .requestMatchers("/produit/**").permitAll()
+                          .requestMatchers("/api/plats/**").permitAll()
+                        .requestMatchers("/api/plats/addplat/**").hasRole("Staff")
+                        .requestMatchers("/error", "/error/**").permitAll()
                         //.requestMatchers(HttpMethod.POST, "/produit/add-produit").permitAll()
-                        /*.requestMatchers(HttpMethod.POST).authenticated()
-                        /*.requestMatchers("/api/users/get").hasRole("ADMIN")  // Autorisation uniquement pour les utilisateurs avec le rôle ADMIN
+                        /*/.requestMatchers(HttpMethod.POST).authenticated()
+
+                        .requestMatchers("/api/users/get").hasRole("ADMIN")  // Autorisation uniquement pour les utilisateurs avec le rôle ADMIN
                         .requestMatchers("/api/users/accept/{userId}").hasAnyRole("ADMIN", "USER")
+
+                        .requestMatchers("/api/reclamations/**").permitAll()  // Autorisation uniquement pour les utilisateurs avec le rôle ADMIN
+                        .requestMatchers("/api/menus/generate/**").permitAll()
+                        .requestMatchers("/api/menus/**").permitAll()
+                        .requestMatchers("/api/plats/addplat/**").hasRole("Staff")
+                        .requestMatchers("/api/plats/**").permitAll()
+                        .requestMatchers("/api/regimes/addregime/**").permitAll()
+                        .requestMatchers("/api/regimes/{id}/plats/**").permitAll()
+                        .requestMatchers("/api/users/accept/{userId}").hasAnyRole("ADMIN", "USER")
+
                         .requestMatchers("/api/users/block/{userId}").hasRole("ADMIN")
                         .requestMatchers("/api/stage/uploadFile").hasRole("ADMIN")
                         .requestMatchers("/api/stage/lettre/{id}").hasRole("USER")
@@ -75,7 +88,8 @@ public class SecurityConfig {
         configuration.addAllowedMethod("DELETE");
         configuration.addAllowedMethod("OPTIONS");  // Ajoutez OPTIONS pour les pré-demandes
         configuration.addAllowedHeader("*"); // Accepte tous les en-têtes
-        configuration.setAllowCredentials(true);  // Permet l'utilisation de cookies si nécessaire
+        configuration.setAllowCredentials(true);
+        configuration.addExposedHeader("Authorization");// Permet l'utilisation de cookies si nécessaire
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);  // Applique la configuration CORS à toutes les URL

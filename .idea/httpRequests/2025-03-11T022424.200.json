@@ -1,0 +1,2270 @@
+[
+  {
+    "id": 1,
+    "date": "2025-03-11",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "lobya aaloush",
+        "nom": "lobya",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "banane",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "date": "2025-03-11",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 2,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "soupe hara",
+        "nom": "soupe",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "makarouna aaloush",
+        "nom": "makarouna",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jus orange",
+        "nom": "jus orange",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "date": "2025-03-12",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jebena aaloush",
+        "nom": "jelbena",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "banane",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "date": "2025-03-12",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 1,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "3jeaa",
+        "nom": "3ejaa",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "makarouna aaloush",
+        "nom": "makarouna",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "fraise",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "date": "2025-03-13",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "lobya aaloush",
+        "nom": "lobya",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "yahourt glacé",
+        "nom": "yahout",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "date": "2025-03-13",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 2,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "soupe hara",
+        "nom": "soupe",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "kisksi aaloush",
+        "nom": "kosksi",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jus orange",
+        "nom": "jus orange",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "date": "2025-03-14",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "lobya aaloush",
+        "nom": "lobya",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "banane",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "date": "2025-03-14",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 2,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "soupe hara",
+        "nom": "soupe",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "makarouna aaloush",
+        "nom": "makarouna",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jus orange",
+        "nom": "jus orange",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "date": "2025-03-15",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jebena aaloush",
+        "nom": "jelbena",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "banane",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "date": "2025-03-15",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 1,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "3jeaa",
+        "nom": "3ejaa",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "makarouna aaloush",
+        "nom": "makarouna",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jus orange",
+        "nom": "jus orange",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "date": "2025-03-16",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "lobya aaloush",
+        "nom": "lobya",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "yahourt glacé",
+        "nom": "yahout",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "date": "2025-03-16",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 1,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "3jeaa",
+        "nom": "3ejaa",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "kisksi aaloush",
+        "nom": "kosksi",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "fraise",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "date": "2025-03-17",
+    "regime": "NORMAL",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 3,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "salade verte",
+        "nom": "salade",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "jebena aaloush",
+        "nom": "jelbena",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "banane",
+        "regimes": [
+          {
+            "id": 2,
+            "type": "NORMAL",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "date": "2025-03-17",
+    "regime": "SPORTIF",
+    "createdBy": {
+      "numero": 0,
+      "access": null,
+      "nom": null,
+      "age": 0,
+      "email": "mayssa@gmail.com",
+      "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+      "adresse": null,
+      "telephone": null,
+      "role": "Staff",
+      "is_verified": true,
+      "resetToken": null,
+      "resetTokenExpiry": null,
+      "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+      "link_Image": null,
+      "id_user": 1
+    },
+    "plats": [
+      {
+        "id": 1,
+        "categorie": "ENTREE",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "3jeaa",
+        "nom": "3ejaa",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "categorie": "PLAT_PRINCIPAL",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "makarouna aaloush",
+        "nom": "makarouna",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "categorie": "DESSERT",
+        "addedBy": {
+          "numero": 0,
+          "access": null,
+          "nom": null,
+          "age": 0,
+          "email": "mayssa@gmail.com",
+          "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+          "adresse": null,
+          "telephone": null,
+          "role": "Staff",
+          "is_verified": true,
+          "resetToken": null,
+          "resetTokenExpiry": null,
+          "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+          "link_Image": null,
+          "id_user": 1
+        },
+        "description": "frais",
+        "nom": "fraise",
+        "regimes": [
+          {
+            "id": 1,
+            "type": "SPORTIF",
+            "addedBy": {
+              "numero": 0,
+              "access": null,
+              "nom": null,
+              "age": 0,
+              "email": "mayssa@gmail.com",
+              "mdp": "$2a$10$loJ8a8v5qZP2H9b55zlsQuj9qWeJthj/B4Co05GHg/CacogRD20r.",
+              "adresse": null,
+              "telephone": null,
+              "role": "Staff",
+              "is_verified": true,
+              "resetToken": null,
+              "resetTokenExpiry": null,
+              "verificationToken": "d2581544-f987-4c6f-899f-c2cd4bd4fd80",
+              "link_Image": null,
+              "id_user": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

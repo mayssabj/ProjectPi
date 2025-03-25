@@ -2,12 +2,8 @@ package tn.esprit.projet_pi.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import tn.esprit.projet_pi.entity.Produit;
-
-import java.util.Optional;
+import tn.esprit.projet_pi.entity.PlatProduit;
 
 @Repository
-public interface ProduitRepository extends JpaRepository<Produit,Integer> {
-
-
+public interface PlatProduitRepository extends JpaRepository<PlatProduit, Long> {
 }

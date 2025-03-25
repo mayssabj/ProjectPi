@@ -9,7 +9,7 @@ import jakarta.mail.internet.MimeMessage;
 
 @Service
 public class EmailService {
-    private final JavaMailSender mailSender;
+    /*private final JavaMailSender mailSender;
 
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
@@ -28,5 +28,5 @@ public class EmailService {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

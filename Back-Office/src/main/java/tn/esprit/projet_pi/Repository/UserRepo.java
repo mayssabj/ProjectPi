@@ -11,4 +11,8 @@ public interface UserRepo extends JpaRepository<User, Integer> {
     Optional<User> findByNom(String nom);
     Optional<User> findByidUser(Long idUser);
 
+    public User findByVerificationToken(String token);
+
+
+
 }

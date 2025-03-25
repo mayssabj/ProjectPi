@@ -19,6 +19,46 @@ public class ProduitHistorique {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer historiqueID;
 
+    public Integer getHistoriqueID() {
+        return historiqueID;
+    }
+
+    public void setHistoriqueID(Integer historiqueID) {
+        this.historiqueID = historiqueID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
+    public TypeTransaction getType() {
+        return type;
+    }
+
+    public void setType(TypeTransaction type) {
+        this.type = type;
+    }
+
+    public Produit getProduit() {
+        return produit;
+    }
+
+    public void setProduit(Produit produit) {
+        this.produit = produit;
+    }
+
     // Relation avec Produit (Many-to-One)
     @ManyToOne
     @JoinColumn(name = "produit_id", nullable = false)

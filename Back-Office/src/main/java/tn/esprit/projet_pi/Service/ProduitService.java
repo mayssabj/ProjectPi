@@ -34,4 +34,5 @@ public class ProduitService implements IProduitService {
     public Produit getProduitById(Integer produitId) {
         return produitRepository.findById(produitId).orElse(null); // Returns the product if found, else null
     }
+
 }

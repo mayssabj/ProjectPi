@@ -1,0 +1,274 @@
+GET http://localhost:8081/api/menus
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=F7B2BD7A42BBA8B059590FC30EF17DA6
+
+<> 2025-03-11T022424.200.json
+
+###
+
+POST http://localhost:8081/api/regimes/aadregime?userId=1Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=F7B2BD7A42BBA8B059590FC30EF17DA6
+content-length: 0
+
+###
+
+POST http://localhost:8081/api/regimes/aadregime?userId=89Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=D2A881F6CFF3F0F28A8668B8E8BB4E5E
+content-length: 0
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 120
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=D2A881F6CFF3F0F28A8668B8E8BB4E5E
+
+{
+  "nom": "Salade César",
+  "description": "Délicieuse salade avec poulet et sauce César",
+  "categorie": "ENTREE"
+}
+
+<> 2025-03-10T231708.200.json
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 145
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=D2A881F6CFF3F0F28A8668B8E8BB4E5E
+
+{
+  "categorie": "ENTREE",
+  "description": "hhhh",
+  "nom": "gghjkk",
+  "imageUrl": "C:/Users/USER/Pictures/Screenshots/Atelier4Mayssabenjoud"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 156
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=FC3F1D8E17BF0CFBF225211764E1D414
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "hhhh",
+  "nom": "gghjkk",
+  "imageUrl": "C:/Users/USER/Pictures/Screenshots/Atelier4Mayssabenjoud"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 164
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=FC3F1D8E17BF0CFBF225211764E1D414
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "gagaga",
+  "nom": "jajjajaj",
+  "imageUrl": "C:/Users/USER:Pictures/Screenshots/Atelier4Mayssabenjoud.png"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 164
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=FC3F1D8E17BF0CFBF225211764E1D414
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "gagaga",
+  "nom": "jajjajaj",
+  "imageUrl": "C:/Users/USER:Pictures/Screenshots/Atelier4Mayssabenjoud.png"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 164
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=FC3F1D8E17BF0CFBF225211764E1D414
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "gagaga",
+  "nom": "jajjajaj",
+  "imageUrl": "C:/Users/USER:Pictures/Screenshots/Atelier4Mayssabenjoud.png"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 160
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=D6717DBBC0F1CDC4FFDB9B5600059130
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "gagaga",
+  "nom": "jajjajaj",
+  "imageUrl": "C:/Users/USER:Pictures/Screenshots/Atelier4Mayssabenjoud"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=8EDA2FDC4576361D9EE366C778ADC4AC
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": ""
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 153
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=8EDA2FDC4576361D9EE366C778ADC4AC
+
+{
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": "C:/Users/USER/Pictures/Screenshots/Atelier4Mayssabenjoud"
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 108
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=8EDA2FDC4576361D9EE366C778ADC4AC
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": ""
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 276
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=2F7300D7640272F219ED67ADE3B40BED
+
+{
+  "id": 0,
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": "https://media.gettyimages.com/id/1488682081/fr/photo/close-up-of-lettuce-against-white-background.jpg?s=612x612&w=gi&k=20&c=eNEYYQ7bgUE_Z3dbLmzajAtq2ChZ2tjbHnKZ7NHmorA="
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 265
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=2F7300D7640272F219ED67ADE3B40BED
+
+{
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": "https://media.gettyimages.com/id/1488682081/fr/photo/close-up-of-lettuce-against-white-background.jpg?s=612x612&w=gi&k=20&c=eNEYYQ7bgUE_Z3dbLmzajAtq2ChZ2tjbHnKZ7NHmorA="
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 265
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=2F7300D7640272F219ED67ADE3B40BED
+
+{
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": "https://media.gettyimages.com/id/1488682081/fr/photo/close-up-of-lettuce-against-white-background.jpg?s=612x612&w=gi&k=20&c=eNEYYQ7bgUE_Z3dbLmzajAtq2ChZ2tjbHnKZ7NHmorA="
+}
+
+###
+
+POST http://localhost:8081/api/plats/addplat
+Content-Type: application/json
+Content-Length: 265
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "categorie": "ENTREE",
+  "description": "salade verte",
+  "nom": "salade",
+  "imageUrl": "https://media.gettyimages.com/id/1488682081/fr/photo/close-up-of-lettuce-against-white-background.jpg?s=612x612&w=gi&k=20&c=eNEYYQ7bgUE_Z3dbLmzajAtq2ChZ2tjbHnKZ7NHmorA="
+}
+
+###
+

@@ -1,9 +1,14 @@
 package tn.esprit.projet_pi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -27,6 +32,35 @@ public class User {
     private Boolean is_verified;
     @Column(unique = true)
     private String resetToken;
+
+    private LocalDateTime resetTokenExpiry;
+    private String verificationToken;
+    @OneToMany(mappedBy = "createdBy")
+    @JsonIgnore
+    private List<Menu> menus;
+
+    @OneToMany(mappedBy = "addedBy")
+    @JsonIgnore
+    private List<Plat> plats;
+
+
+
+    public String getVerificationToken() {
+        return verificationToken;
+    }
+
+    public void setVerificationToken(String verificationToken) {
+        this.verificationToken = verificationToken;
+    }
+
+    public LocalDateTime getResetTokenExpiry() {
+        return resetTokenExpiry;
+    }
+
+    public void setResetTokenExpiry(LocalDateTime resetTokenExpiry) {
+        this.resetTokenExpiry = resetTokenExpiry;
+    }
+
 
     public String getResetToken() {
         return resetToken;
