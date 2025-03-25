@@ -82,5 +82,3 @@ public class Reclamation {
         this.user = user;
     }
 }
-
-
