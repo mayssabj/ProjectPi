@@ -1,0 +1,230 @@
+// Advanced SCSS for Modern UI
+// Variables for colors, typography, and other design system values
+$primary-color: #5f63f2;
+$secondary-color: #f3f4f7;
+$accent-color: #28a745;
+$danger-color: #dc3545;
+$neutral-color: #6c757d;
+$background-color: #f9f9f9;
+$card-bg-color: #ffffff;
+$border-radius: 12px;
+$font-family: 'Poppins', Arial, sans-serif;
+$transition-speed: 0.3s;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$hover-shadow: rgba(0, 0, 0, 0.2);
+
+// Utility mixins for consistency
+@mixin box-shadow($color, $blur: 16px, $spread: 2px) {
+  box-shadow: 0 4px $blur $color, 0 2px $spread $color;
+}
+
+@mixin button-style($bg-color, $hover-bg-color) {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all $transition-speed ease;
+  background-color: $bg-color;
+  color: white;
+
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+}
+
+@mixin status-badge($bg-color) {
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: $bg-color;
+  color: white;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+// Main wrapper
+.reclamation-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: $background-color;
+  border-radius: $border-radius;
+  font-family: $font-family;
+
+  .reclamation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333;
+      text-transform: capitalize;
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 15px;
+
+      .filter-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        border: none;
+        background-color: $secondary-color;
+        color: #333;
+        cursor: pointer;
+        border-radius: $border-radius;
+        transition: background-color $transition-speed ease, color $transition-speed ease;
+
+        &:hover {
+          background-color: $primary-color;
+          color: white;
+        }
+
+        &.active {
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+    }
+
+    .add-reclamation-btn {
+      @include button-style($accent-color, darken($accent-color, 10%));
+    }
+  }
+
+  .reclamation-content {
+    // Loading indicator
+    .loading-indicator {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 50px 0;
+      
+      .spinner {
+        border: 4px solid transparent;
+        border-top: 4px solid $primary-color;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+
+      p {
+        font-size: 16px;
+        color: $neutral-color;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    }
+
+    // Empty state
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 50px 0;
+      color: $neutral-color;
+
+      img {
+        width: 100px;
+      }
+
+      button {
+        @include button-style($primary-color, darken($primary-color, 10%));
+      }
+    }
+
+    // Reclamation list
+    .reclamation-list {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+      .reclamation-card {
+        background-color: $card-bg-color;
+        padding: 20px;
+        border-radius: $border-radius;
+        box-shadow: 0 10px 20px $shadow-color;
+        transition: transform $transition-speed ease, box-shadow $transition-speed ease;
+
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px $shadow-color;
+        }
+
+        .card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+          }
+
+          .status-badge {
+            @include status-badge($primary-color);
+            &.pending { @include status-badge(#ffc107); }
+            &.in-progress { @include status-badge($primary-color); }
+            &.resolved { @include status-badge($accent-color); }
+          }
+        }
+
+        .reclamation-description {
+          font-size: 14px;
+          color: $neutral-color;
+          margin: 15px 0;
+        }
+
+        .card-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 14px;
+          color: $neutral-color;
+
+          .date {
+            color: $neutral-color;
+          }
+
+          .actions {
+            display: flex;
+            gap: 15px;
+
+            .btn-view, .btn-delete {
+              padding: 8px 15px;
+              font-size: 14px;
+              border: none;
+              border-radius: $border-radius;
+              cursor: pointer;
+              transition: all $transition-speed ease;
+              text-transform: uppercase;
+            }
+
+            .btn-view {
+              @include button-style($primary-color, darken($primary-color, 10%));
+            }
+
+            .btn-delete {
+              @include button-style($danger-color, darken($danger-color, 10%));
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+<div *ngIf="!isLoading" class="restaurant-profile">
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="avatar-section">
+          <div class="avatar-wrapper">
+            <img 
+              [src]="user.avatarUrl || '/assets/default-restaurant-logo.png'" 
+              alt="Restaurant Logo" 
+              class="profile-avatar"
+            >
+            <div class="status-badge">
+              active
+            </div>
+          </div>
+        </div>
+        
+        <div class="header-details">
+          <h1 class="restaurant-name">
+            <ng-container *ngIf="!editMode">{{ user.nom }}</ng-container>
+            <input 
+              *ngIf="editMode" 
+              [formControl]="getFormControl('nom')"
+              class="edit-input"
+            >
+          </h1>
+          <div class="location-info">
+            <i class="icon-location"></i>
+            <span>École supérieure privée d'ingénierie et de technologie</span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="profile-content">
+        <div class="profile-stats">
+          <div class="stat-item">
+            <h3>{{ stats.mealsServed }}</h3>
+            <p>Meals Served</p>
+          </div>
+          <div class="stat-item">
+            <h3>{{ stats.averageRating }}</h3>
+            <p>Average Rating</p>
+          </div>
+          <div class="stat-item">
+            <h3>{{ stats.menuVariety }}</h3>
+            <p>Menu Variety</p>
+          </div>
+        </div>
+  
+        <div class="profile-details">
+          <div class="detail-section">
+            <h2>Restaurant Information</h2>
+            
+            <div class="detail-grid">
+              <div class="detail-item">
+                <label>User Name</label>
+                <ng-container *ngIf="!editMode">
+                  <span>{{ user.nom }}</span>
+                </ng-container>
+                <input 
+                  *ngIf="editMode" 
+                  [formControl]="getFormControl('nom')"
+                  class="edit-input"
+                >
+              </div>
+              
+              <div class="detail-item">
+                <label>Contact Email</label>
+                <ng-container *ngIf="!editMode">
+                  <span>{{ user.email }}</span>
+                </ng-container>
+                <input 
+                  *ngIf="editMode" 
+                  [formControl]="getFormControl('email')"
+                  class="edit-input"
+                >
+              </div>
+              
+              <div class="detail-item">
+                <label>User Age</label>
+                <ng-container *ngIf="!editMode">
+                  <span>{{ user.age }}</span>
+                </ng-container>
+                <input 
+                  *ngIf="editMode" 
+                  type="number"
+                  [formControl]="getFormControl('age')"
+                  class="edit-input"
+                >
+              </div>
+              
+              <div class="detail-item">
+                <label>Operating Role</label>
+                <ng-container *ngIf="!editMode">
+                  <span>{{ user.role }}</span>
+                </ng-container>
+                <select 
+                  *ngIf="editMode" 
+                  [formControl]="getFormControl('role')"
+                  class="edit-input"
+                >
+                  <option value="Restaurant Manager">Restaurant Manager</option>
+                  <option value="Chef">Chef</option>
+                  <option value="Staff">Staff</option>
+                  <option value="User">User</option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div class="detail-section">
+            <h2>Current Menu Highlights</h2>
+            <!-- Add menu highlights content here -->
+          </div>
+        </div>
+  
+        <div class="profile-actions">
+          <button 
+            *ngIf="!editMode" 
+            (click)="toggleEditMode()"
+            class="btn btn-primary"
+          >
+            Edit Profile
+          </button>
+          
+          <button 
+            *ngIf="editMode" 
+            (click)="saveChanges()"
+            class="btn btn-success"
+            [disabled]="profileForm.invalid"
+          >
+            Save Changes
+          </button>
+          
+          <button 
+            *ngIf="editMode" 
+            (click)="cancelEdit()"
+            class="btn btn-secondary"
+          >
+            Cancel
+          </button>
+          
+          <button 
+            (click)="logout()" 
+            class="btn btn-danger"
+          >
+            Logout
+          </button>
+        </div>
+  
+        <!-- Error message display -->
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Loading Template -->
+  <ng-template #loadingTemplate>
+    <div class="loading-overlay">
+      <div class="spinner"></div>
+      <p>Loading Restaurant Profile...</p>
+    </div>
+  </ng-template>

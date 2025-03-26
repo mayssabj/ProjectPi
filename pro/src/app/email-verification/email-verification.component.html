@@ -1,0 +1,28 @@
+<div class="verification-container">
+    <div class="verification-card" [@fadeIn]>
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="verification-state loading-state">
+        <div class="spinner"></div>
+        <h2>Vérification en cours...</h2>
+        <p>Veuillez patienter pendant que nous vérifions votre compte.</p>
+      </div>
+  
+      <!-- Success State -->
+      <div *ngIf="!isLoading && isVerified" class="verification-state success-state">
+        <div class="icon-container success">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2>Email vérifié avec succès!</h2>
+        <p>Votre compte a été activé. Vous pouvez maintenant vous connecter avec vos identifiants.</p>
+      </div>
+  
+      <!-- Error State -->
+      <div *ngIf="!isLoading && !isVerified" class="verification-state error-state">
+        <div class="icon-container error">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2>Échec de la vérification</h2>
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>

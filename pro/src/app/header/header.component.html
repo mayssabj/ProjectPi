@@ -1,0 +1,53 @@
+<header class="main-header">
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="assets/logo.png" alt="Company Logo" class="logo">
+      </div>
+      
+      <nav class="navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/projects" routerLinkActive="active">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/reports" routerLinkActive="active">Reports</a>
+          </li>
+        </ul>
+      </nav>
+  
+      <div class="user-actions">
+        <div class="notifications">
+          <button class="notification-btn">
+            <i class="icon-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+        </div>
+  
+        <div class="user-profile" (click)="toggleProfileDropdown()">
+          <img [src]="userProfileImage" alt="User Profile" class="user-avatar">
+          <span class="user-name">{{ userName }}</span>
+          <i class="icon-chevron-down"></i>
+  
+          <div class="profile-dropdown" *ngIf="isProfileDropdownOpen">
+            <ul>
+              <li (click)="navigateToProfile()">
+                <i class="icon-user"></i> Profile
+              </li>
+              <li (click)="navigateToSettings()">
+                <i class="icon-settings"></i> Settings
+              </li>
+              <li (click)="navigateToAddRec()">
+                <i class="icon-settings"></i> Settings
+              </li>
+              <li (click)="logout()">
+                <i class="icon-logout"></i> Logout
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

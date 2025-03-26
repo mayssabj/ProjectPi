@@ -1,0 +1,103 @@
+<div class="reclamation-wrapper">
+    <div class="reclamation-header">
+      <h1>Mes Réclamations - Restaurant Universitaire</h1>
+      
+      <div class="filter-actions">
+        <button 
+          (click)="filterReclamations('ALL')" 
+          [class.active]="statusFilter === 'ALL'"
+          class="filter-btn"
+        >
+          Toutes
+        </button>
+        <button 
+          (click)="filterReclamations('PENDING')" 
+          [class.active]="statusFilter === 'PENDING'"
+          class="filter-btn"
+        >
+          En attente
+        </button>
+        <button 
+          (click)="filterReclamations('IN_PROGRESS')" 
+          [class.active]="statusFilter === 'IN_PROGRESS'"
+          class="filter-btn"
+        >
+          En cours
+        </button>
+        <button 
+          (click)="filterReclamations('RESOLVED')" 
+          [class.active]="statusFilter === 'RESOLVED'"
+          class="filter-btn"
+        >
+          Résolues
+        </button>
+      </div>
+  
+      <button 
+        class="add-reclamation-btn"
+        (click)="goToAddReclamation()"
+      >
+        Nouvelle Réclamation
+      </button>
+    </div>
+  
+    <div class="reclamation-content">
+      <div *ngIf="loading" class="loading-indicator">
+        <div class="spinner"></div>
+        <p>Chargement des réclamations...</p>
+      </div>
+  
+      <div 
+        *ngIf="!loading && filteredReclamations.length === 0" 
+        class="empty-state"
+      >
+        <img src="/assets/icons/empty-box.svg" alt="Aucune réclamation">
+        <p>Aucune réclamation trouvée</p>
+        <button (click)="goToAddReclamation()">
+          Créer une réclamation
+        </button>
+      </div>
+  
+      <div 
+        *ngIf="!loading && filteredReclamations.length > 0" 
+        class="reclamation-list"
+        [@reclamationAnimation]
+      >
+        <div 
+          *ngFor="let reclamation of filteredReclamations" 
+          class="reclamation-card"
+        >
+          <div class="card-header">
+            <h3>{{ reclamation.subject }}</h3>
+            <span 
+              class="status-badge"
+              [ngClass]="reclamation.status.toLowerCase()"
+            >
+              {{ getStatusLabel(reclamation.status) }}
+            </span>
+          </div>
+          <p class="reclamation-description">{{ reclamation.description }}</p>
+          <div class="card-footer">
+            <span class="date">
+              {{ reclamation.dateCreated | date:'dd MMM yyyy' }}
+            </span>
+            <div class="actions">
+              <button 
+                class="btn-view"
+                (click)="viewReclamationDetails(reclamation)"
+              >
+                Détails
+              </button>
+              <button 
+                *ngIf="reclamation.status === 'PENDING'"
+                class="btn-delete"
+                (click)="deleteReclamation(reclamation.id)"
+              >
+                Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

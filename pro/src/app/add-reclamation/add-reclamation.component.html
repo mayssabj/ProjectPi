@@ -1,0 +1,63 @@
+<div class="reclamation-container">
+    <div class="reclamation-form-wrapper">
+      <h2 class="form-title">Submit a New Complaint</h2>
+      
+      <form [formGroup]="reclamationForm" (ngSubmit)="onSubmit()" class="reclamation-form">
+        <!-- Subject Input -->
+        <div class="form-group">
+          <label for="subject" class="form-label">Complaint Subject</label>
+          <input 
+            type="text" 
+            id="subject" 
+            formControlName="subject" 
+            class="form-control"
+            placeholder="Enter a brief subject for your complaint"
+          >
+          
+          <!-- Validation Error Messages -->
+          <div *ngIf="subject?.invalid && (subject?.dirty || subject?.touched)" class="error-messages">
+            <small *ngIf="subject?.errors?.['required']" class="error">Subject is required.</small>
+            <small *ngIf="subject?.errors?.['minlength']" class="error">Subject must be at least 5 characters long.</small>
+            <small *ngIf="subject?.errors?.['maxlength']" class="error">Subject cannot exceed 100 characters.</small>
+          </div>
+        </div>
+  
+        <!-- Description Input -->
+        <div class="form-group">
+          <label for="description" class="form-label">Complaint Details</label>
+          <textarea 
+            id="description" 
+            formControlName="description" 
+            class="form-control textarea"
+            rows="5"
+            placeholder="Provide detailed information about your complaint"
+          ></textarea>
+          
+          <!-- Validation Error Messages -->
+          <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="error-messages">
+            <small *ngIf="description?.errors?.['required']" class="error">Description is required.</small>
+            <small *ngIf="description?.errors?.['minlength']" class="error">Description must be at least 10 characters long.</small>
+            <small *ngIf="description?.errors?.['maxlength']" class="error">Description cannot exceed 500 characters.</small>
+          </div>
+        </div>
+  
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button 
+            type="submit" 
+            class="btn btn-submit"
+            [disabled]="reclamationForm.invalid"
+          >
+            Submit Complaint
+          </button>
+          <button 
+            type="button" 
+            class="btn btn-cancel"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
