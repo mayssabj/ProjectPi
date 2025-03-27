@@ -1,9 +1,10 @@
 package tn.esprit.projet_pi.Controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.projet_pi.entity.RecommandationNutritionnelle;
 import tn.esprit.projet_pi.Service.IRecommandationNutritionnelleService;
+import tn.esprit.projet_pi.entity.RecommandationNutritionnelle;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/recommandations")
 public class RecommandationNutritionnelleController {
 
-    public final IRecommandationNutritionnelleService recommandationService;
+    private final IRecommandationNutritionnelleService recommandationService;
 
     @Autowired
     public RecommandationNutritionnelleController(IRecommandationNutritionnelleService recommandationService) {
@@ -19,27 +20,22 @@ public class RecommandationNutritionnelleController {
     }
 
     @PostMapping
-    public RecommandationNutritionnelle ajouter(@RequestBody RecommandationNutritionnelle r) {
-        return recommandationService.ajouterRecommandation(r);
-    }
-
-    @PutMapping
-    public RecommandationNutritionnelle modifier(@RequestBody RecommandationNutritionnelle r) {
-        return recommandationService.mettreAJourRecommandation(r);
-    }
-
-    @GetMapping("/consultation/{consultationId}")
-    public List<RecommandationNutritionnelle> getByConsultation(@PathVariable Long consultationId) {
-        return recommandationService.getParConsultation(consultationId);
-    }
-
-    @GetMapping("/medecin/{medecinId}")
-    public List<RecommandationNutritionnelle> getByMedecin(@PathVariable Long medecinId) {
-        return recommandationService.getParMedecin(medecinId);
+    public RecommandationNutritionnelle add(@RequestBody RecommandationNutritionnelle r) {
+        return recommandationService.add(r);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        recommandationService.supprimerRecommandation(id);
+        recommandationService.delete(id);
+    }
+
+    @GetMapping("/consultation/{consultationId}")
+    public List<RecommandationNutritionnelle> getByConsultation(@PathVariable Long consultationId) {
+        return recommandationService.getByConsultation(consultationId);
+    }
+
+    @GetMapping("/medecin/{medecinId}")
+    public List<RecommandationNutritionnelle> getByMedecin(@PathVariable Long medecinId) {
+        return recommandationService.getByMedecin(medecinId);
     }
 }

@@ -9,34 +9,29 @@ import java.util.List;
 @Service
 public class RecommandationNutritionnelleServiceImpl implements IRecommandationNutritionnelleService {
 
-    private final RecommandationNutritionnelleRepository recommandationRepo;
+    private final RecommandationNutritionnelleRepository recommandationNutritionnelleRepository;
 
-    public RecommandationNutritionnelleServiceImpl(RecommandationNutritionnelleRepository recommandationRepo) {
-        this.recommandationRepo = recommandationRepo;
+    public RecommandationNutritionnelleServiceImpl(RecommandationNutritionnelleRepository recommandationNutritionnelleRepository) {
+        this.recommandationNutritionnelleRepository = recommandationNutritionnelleRepository;
     }
 
     @Override
-    public RecommandationNutritionnelle ajouterRecommandation(RecommandationNutritionnelle recommandation) {
-        return recommandationRepo.save(recommandation);
+    public RecommandationNutritionnelle add(RecommandationNutritionnelle r) {
+        return recommandationNutritionnelleRepository.save(r);
     }
 
     @Override
-    public RecommandationNutritionnelle mettreAJourRecommandation(RecommandationNutritionnelle recommandation) {
-        return recommandationRepo.save(recommandation);
+    public void delete(Long id) {
+        recommandationNutritionnelleRepository.deleteById(id);
     }
 
     @Override
-    public List<RecommandationNutritionnelle> getParConsultation(Long consultationId) {
-        return recommandationRepo.findByConsultationId(consultationId);
+    public List<RecommandationNutritionnelle> getByConsultation(Long consultationId) {
+        return recommandationNutritionnelleRepository.findByConsultationId(consultationId);
     }
 
     @Override
-    public List<RecommandationNutritionnelle> getParMedecin(Long medecinId) {
-        return recommandationRepo.findByMedecinId(medecinId);
-    }
-
-    @Override
-    public void supprimerRecommandation(Long id) {
-        recommandationRepo.deleteById(id);
+    public List<RecommandationNutritionnelle> getByMedecin(Long medecinId) {
+        return recommandationNutritionnelleRepository.findByMedecin_IdUser(medecinId); // ✅ Correction ici
     }
 }

@@ -1,6 +1,6 @@
 package tn.esprit.projet_pi.entity;
 
-public enum DecisionValidation {
+public enum DecisionMenu {
     VALIDE,
     REJETE
 }

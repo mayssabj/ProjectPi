@@ -1,14 +1,16 @@
 package tn.esprit.projet_pi.Controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.projet_pi.entity.ProfilNutritionnel;
 import tn.esprit.projet_pi.Service.IProfilNutritionnelService;
+import tn.esprit.projet_pi.entity.ProfilNutritionnel;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profil-nutritionnel")
+@RequestMapping("/api/profil")
 public class ProfilNutritionnelController {
 
     private final IProfilNutritionnelService profilService;
@@ -18,28 +20,36 @@ public class ProfilNutritionnelController {
         this.profilService = profilService;
     }
 
-    @PostMapping
-    public ProfilNutritionnel ajouterProfil(@RequestBody ProfilNutritionnel profil) {
-        return profilService.ajouterProfil(profil);
+    @PostMapping("/profil")
+    public ResponseEntity<ProfilNutritionnel> create(@RequestBody ProfilNutritionnel profil) {
+        ProfilNutritionnel created = profilService.addProfil(profil); // ✅ changement ici
+        return ResponseEntity.ok(created);
     }
 
-    @PutMapping
-    public ProfilNutritionnel mettreAJourProfil(@RequestBody ProfilNutritionnel profil) {
-        return profilService.mettreAJourProfil(profil);
-    }
 
-    @GetMapping("/user/{userId}")
-    public ProfilNutritionnel getProfilParUser(@PathVariable Long userId) {
-        return profilService.getProfilParUserId(userId);
-    }
 
-    @GetMapping
-    public List<ProfilNutritionnel> getTous() {
-        return profilService.getTousLesProfils();
+    @PutMapping("/{id}")
+    public ProfilNutritionnel update(@PathVariable Long id, @RequestBody ProfilNutritionnel profil) {
+        return profilService.updateProfil(id, profil);
     }
 
     @DeleteMapping("/{id}")
-    public void supprimer(@PathVariable Long id) {
-        profilService.supprimerProfil(id);
+    public void delete(@PathVariable Long id) {
+        profilService.deleteProfil(id);
+    }
+
+    @GetMapping("/{id}")
+    public ProfilNutritionnel getById(@PathVariable Long id) {
+        return profilService.getProfilById(id);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ProfilNutritionnel getByUserId(@PathVariable Long userId) {
+        return profilService.getProfilByUserId(userId);
+    }
+
+    @GetMapping
+    public List<ProfilNutritionnel> getAll() {
+        return profilService.getAllProfils();
     }
 }

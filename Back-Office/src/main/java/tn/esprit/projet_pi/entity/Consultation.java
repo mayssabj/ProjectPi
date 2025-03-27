@@ -1,22 +1,27 @@
 package tn.esprit.projet_pi.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Consultation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long consultationId;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
-    private User user;
+    @JoinColumn(name = "user_id")
+    private User etudiant;
 
     @ManyToOne
-    @JoinColumn(name = "medecin_id", nullable = false)
+    @JoinColumn(name = "medecin_id")
     private User medecin;
 
     private LocalDateTime dateConsultation;
@@ -24,18 +29,62 @@ public class Consultation {
     @Enumerated(EnumType.STRING)
     private StatutConsultation statut;
 
-    @Column(columnDefinition = "TEXT")
+    private String typeConsultation;
     private String compteRendu;
 
-    public Consultation() {}
-
-    public Consultation(User user, User medecin, LocalDateTime dateConsultation, StatutConsultation statut, String compteRendu) {
-        this.user = user;
-        this.medecin = medecin;
-        this.dateConsultation = dateConsultation;
-        this.statut = statut;
-        this.compteRendu = compteRendu;
+    public Long getId() {
+        return id;
     }
 
-    // Getters & Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(User etudiant) {
+        this.etudiant = etudiant;
+    }
+
+    public User getMedecin() {
+        return medecin;
+    }
+
+    public void setMedecin(User medecin) {
+        this.medecin = medecin;
+    }
+
+    public LocalDateTime getDateConsultation() {
+        return dateConsultation;
+    }
+
+    public void setDateConsultation(LocalDateTime dateConsultation) {
+        this.dateConsultation = dateConsultation;
+    }
+
+    public StatutConsultation getStatut() {
+        return statut;
+    }
+
+    public void setStatut(StatutConsultation statut) {
+        this.statut = statut;
+    }
+
+    public String getTypeConsultation() {
+        return typeConsultation;
+    }
+
+    public void setTypeConsultation(String typeConsultation) {
+        this.typeConsultation = typeConsultation;
+    }
+
+    public String getCompteRendu() {
+        return compteRendu;
+    }
+
+    public void setCompteRendu(String compteRendu) {
+        this.compteRendu = compteRendu;
+    }
 }

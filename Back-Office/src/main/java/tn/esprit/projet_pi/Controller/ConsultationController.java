@@ -1,9 +1,11 @@
 package tn.esprit.projet_pi.Controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.projet_pi.entity.Consultation;
 import tn.esprit.projet_pi.Service.IConsultationService;
+import tn.esprit.projet_pi.entity.Consultation;
 
 import java.util.List;
 
@@ -13,38 +15,41 @@ public class ConsultationController {
 
     private final IConsultationService consultationService;
 
+
     @Autowired
     public ConsultationController(IConsultationService consultationService) {
         this.consultationService = consultationService;
     }
 
     @PostMapping
-    public Consultation ajouter(@RequestBody Consultation consultation) {
-        return consultationService.ajouterConsultation(consultation);
+    public ResponseEntity<Consultation> create(@RequestBody Consultation consultation) {
+        Consultation created = consultationService.addConsultation(consultation);
+        return ResponseEntity.ok(created);
     }
 
-    @PutMapping
-    public Consultation modifier(@RequestBody Consultation consultation) {
-        return consultationService.mettreAJourConsultation(consultation);
-    }
 
-    @GetMapping("/{id}")
-    public Consultation getOne(@PathVariable Long id) {
-        return consultationService.getConsultation(id);
-    }
-
-    @GetMapping("/etudiant/{userId}")
-    public List<Consultation> getByUser(@PathVariable Long userId) {
-        return consultationService.getConsultationsParUser(userId);
-    }
-
-    @GetMapping("/medecin/{medecinId}")
-    public List<Consultation> getByMedecin(@PathVariable Long medecinId) {
-        return consultationService.getConsultationsParMedecin(medecinId);
+    @PutMapping("/{id}")
+    public Consultation update(@PathVariable Long id, @RequestBody Consultation consultation) {
+        return consultationService.updateConsultation(id, consultation);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        consultationService.supprimerConsultation(id);
+        consultationService.deleteConsultation(id);
+    }
+
+    @GetMapping("/{id}")
+    public Consultation get(@PathVariable Long id) {
+        return consultationService.getConsultation(id);
+    }
+
+    @GetMapping("/etudiant/{userId}")
+    public List<Consultation> getByEtudiant(@PathVariable Long userId) {
+        return consultationService.getByEtudiant(userId);
+    }
+
+    @GetMapping("/medecin/{medecinId}")
+    public List<Consultation> getByMedecin(@PathVariable Long medecinId) {
+        return consultationService.getByMedecin(medecinId);
     }
 }

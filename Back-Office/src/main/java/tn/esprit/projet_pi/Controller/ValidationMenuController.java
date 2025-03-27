@@ -1,40 +1,29 @@
 package tn.esprit.projet_pi.Controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.projet_pi.entity.ValidationMenu;
 import tn.esprit.projet_pi.Service.IValidationMenuService;
-
-import java.util.List;
+import tn.esprit.projet_pi.entity.ValidationMenu;
 
 @RestController
 @RequestMapping("/api/validation-menu")
 public class ValidationMenuController {
 
-    private final IValidationMenuService validationService;
+    private final IValidationMenuService validationMenuService;
 
     @Autowired
-    public ValidationMenuController(IValidationMenuService validationService) {
-        this.validationService = validationService;
+    public ValidationMenuController(IValidationMenuService validationMenuService) {
+        this.validationMenuService = validationMenuService;
     }
 
     @PostMapping
-    public ValidationMenu valider(@RequestBody ValidationMenu validation) {
-        return validationService.validerMenu(validation);
+    public ValidationMenu validate(@RequestBody ValidationMenu vm) {
+        return validationMenuService.validateMenu(vm);
     }
 
     @GetMapping("/menu/{menuId}")
     public ValidationMenu getByMenu(@PathVariable Long menuId) {
-        return validationService.getValidationParMenu(menuId);
-    }
-
-    @GetMapping("/nutritionniste/{id}")
-    public List<ValidationMenu> getByNutritionniste(@PathVariable Long id) {
-        return validationService.getParMedecin(id);
-    }
-
-    @DeleteMapping("/{id}")
-    public void supprimer(@PathVariable Long id) {
-        validationService.supprimerValidation(id);
+        return validationMenuService.getByMenuId(menuId);
     }
 }

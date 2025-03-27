@@ -5,10 +5,10 @@ import tn.esprit.projet_pi.entity.Consultation;
 import java.util.List;
 
 public interface IConsultationService {
-    Consultation ajouterConsultation(Consultation consultation);
-    Consultation mettreAJourConsultation(Consultation consultation);
+    Consultation addConsultation(Consultation c);
+    Consultation updateConsultation(Long id, Consultation c);
+    void deleteConsultation(Long id);
     Consultation getConsultation(Long id);
-    List<Consultation> getConsultationsParUser(Long userId);
-    List<Consultation> getConsultationsParMedecin(Long medecinId);
-    void supprimerConsultation(Long id);
+    List<Consultation> getByEtudiant(Long userId);
+    List<Consultation> getByMedecin(Long medecinId);
 }

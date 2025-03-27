@@ -5,9 +5,10 @@ import tn.esprit.projet_pi.entity.ProfilNutritionnel;
 import java.util.List;
 
 public interface IProfilNutritionnelService {
-    ProfilNutritionnel ajouterProfil(ProfilNutritionnel profil);
-    ProfilNutritionnel mettreAJourProfil(ProfilNutritionnel profil);
-    ProfilNutritionnel getProfilParUserId(Long userId);
-    List<ProfilNutritionnel> getTousLesProfils();
-    void supprimerProfil(Long id);
+    ProfilNutritionnel addProfil(ProfilNutritionnel profil);
+    ProfilNutritionnel updateProfil(Long id, ProfilNutritionnel profil);
+    void deleteProfil(Long id);
+    ProfilNutritionnel getProfilById(Long id);
+    ProfilNutritionnel getProfilByUserId(Long userId);
+    List<ProfilNutritionnel> getAllProfils();
 }

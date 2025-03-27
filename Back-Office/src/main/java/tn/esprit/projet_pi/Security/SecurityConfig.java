@@ -36,6 +36,12 @@ public class SecurityConfig {
                         .requestMatchers("/api/stage/uploadFile").hasRole("ADMIN")
                         .requestMatchers("/api/stage/lettre/{id}").hasRole("USER")
                         .requestMatchers("/api/stage/getStages").hasRole("USER")*/
+                        .requestMatchers("/api/profil/**").authenticated()
+                        .requestMatchers("/api/historique-profil/**").permitAll()
+                        .requestMatchers("/api/consultations/**").permitAll()
+                        .requestMatchers("/api/recommandations/**").permitAll()
+                        .requestMatchers("/api/validation-menu/**").permitAll()
+                        .requestMatchers("/api/medcin/**").permitAll()
 
 
 

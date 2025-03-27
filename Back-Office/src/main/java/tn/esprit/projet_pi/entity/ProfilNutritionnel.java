@@ -1,65 +1,147 @@
 package tn.esprit.projet_pi.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import java.time.LocalDate;
+import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProfilNutritionnel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long profilId;
+    private Long id;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "id_user", nullable = false, unique = true)
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @NotBlank
-    private String objectif;
+    @Enumerated(EnumType.STRING)
+    private Sexe sexe;
+
+    private Double poidsActuel;
+    private Double taille;
 
     @Enumerated(EnumType.STRING)
     private NiveauActivite niveauActivite;
 
-    @Positive
-    private Double poidsActuel;
-
-    @Positive
-    private Double taille;
-
-    @Transient
-    public Double getImc() {
-        return (taille != null && taille > 0) ? poidsActuel / (taille * taille) : null;
-    }
-
-    @Enumerated(EnumType.STRING)
-    private RegimeAlimentaireType regime;
-
+    private String objectif;
     private String allergies;
 
+    @Enumerated(EnumType.STRING)
+    private RegimeAlimentaireType regimeAlimentaire;
+
+    private Double imc;
     private Integer besoinCalorique;
 
     private String derniereEvolution;
+    private LocalDateTime derniereMiseAJour;
 
-    private LocalDate derniereMiseAJour;
-
-    public ProfilNutritionnel() {}
-
-    public ProfilNutritionnel(User user, String objectif, NiveauActivite niveauActivite, Double poidsActuel,
-                              Double taille, RegimeAlimentaireType regime, String allergies, Integer besoinCalorique,
-                              String derniereEvolution, LocalDate derniereMiseAJour) {
-        this.user = user;
-        this.objectif = objectif;
-        this.niveauActivite = niveauActivite;
-        this.poidsActuel = poidsActuel;
-        this.taille = taille;
-        this.regime = regime;
-        this.allergies = allergies;
-        this.besoinCalorique = besoinCalorique;
-        this.derniereEvolution = derniereEvolution;
-        this.derniereMiseAJour = derniereMiseAJour;
+    public Long getId() {
+        return id;
     }
 
-    // Getters & Setters
-    // (tu peux copier les tiens existants ici)
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Sexe getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(Sexe sexe) {
+        this.sexe = sexe;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Double getPoidsActuel() {
+        return poidsActuel;
+    }
+
+    public void setPoidsActuel(Double poidsActuel) {
+        this.poidsActuel = poidsActuel;
+    }
+
+    public Double getTaille() {
+        return taille;
+    }
+
+    public void setTaille(Double taille) {
+        this.taille = taille;
+    }
+
+    public String getObjectif() {
+        return objectif;
+    }
+
+    public void setObjectif(String objectif) {
+        this.objectif = objectif;
+    }
+
+    public NiveauActivite getNiveauActivite() {
+        return niveauActivite;
+    }
+
+    public void setNiveauActivite(NiveauActivite niveauActivite) {
+        this.niveauActivite = niveauActivite;
+    }
+
+    public String getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+    }
+
+    public RegimeAlimentaireType getRegimeAlimentaire() {
+        return regimeAlimentaire;
+    }
+
+    public void setRegimeAlimentaire(RegimeAlimentaireType regimeAlimentaire) {
+        this.regimeAlimentaire = regimeAlimentaire;
+    }
+
+    public Double getImc() {
+        return imc;
+    }
+
+    public void setImc(Double imc) {
+        this.imc = imc;
+    }
+
+    public Integer getBesoinCalorique() {
+        return besoinCalorique;
+    }
+
+    public void setBesoinCalorique(Integer besoinCalorique) {
+        this.besoinCalorique = besoinCalorique;
+    }
+
+    public String getDerniereEvolution() {
+        return derniereEvolution;
+    }
+
+    public void setDerniereEvolution(String derniereEvolution) {
+        this.derniereEvolution = derniereEvolution;
+    }
+
+    public LocalDateTime getDerniereMiseAJour() {
+        return derniereMiseAJour;
+    }
+
+    public void setDerniereMiseAJour(LocalDateTime derniereMiseAJour) {
+        this.derniereMiseAJour = derniereMiseAJour;
+    }
 }
