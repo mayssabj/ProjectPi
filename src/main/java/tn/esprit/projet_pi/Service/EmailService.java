@@ -15,7 +15,7 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     public void sendResetPasswordEmail(String toEmail, String token) {
-        String resetUrl = "http://localhost:8081/api/auth/reset-password?token=" + token;
+        String resetUrl = "http://localhost:4200/reset-password?token=" + token;
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);
@@ -27,7 +27,7 @@ public class EmailService {
     }
 
     public void sendVerificationEmail(String toEmail, String token) {
-        String verificationUrl = "http://localhost:8081/api/auth/verify-email?token=" + token;
+        String verificationUrl = "http://localhost:4200/verify-email?token=" + token;
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(toEmail);

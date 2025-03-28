@@ -11,6 +11,15 @@ public class RegisterRequest {
     public String email;
     public Role role;
     public int age;
+    public String Link_Image;
+
+    public String getLink_Image() {
+        return Link_Image;
+    }
+
+    public void setLink_Image(String link_Image) {
+        Link_Image = link_Image;
+    }
 
     public int getAge() {
         return age;

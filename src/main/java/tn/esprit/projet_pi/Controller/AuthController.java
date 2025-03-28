@@ -42,6 +42,8 @@ public class AuthController {
         user.setMdp(request.getMdp());
         user.setRole(request.getRole());
         user.setAge(request.getAge());
+        user.setLink_Image(request.getLink_Image());
+
 
         String verificationToken = UUID.randomUUID().toString();
         user.setVerificationToken(verificationToken);

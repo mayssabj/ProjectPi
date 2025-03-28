@@ -21,7 +21,7 @@ public class ReclamationAutoResponseService {
 
     @Scheduled(fixedDelay = 1000)
     public void processUnrespondedReclamations() {
-        LocalDateTime recentTime = LocalDateTime.now().minusMinutes(5);
+        LocalDateTime recentTime = LocalDateTime.now().minusMinutes(1);
         List<Reclamation> unrespondedReclamations = reclamationRepository
                 .findByStatusAndDateCreatedBefore(ReclamationStatus.PENDING, recentTime);
 
