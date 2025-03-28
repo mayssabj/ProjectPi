@@ -1,0 +1,112 @@
+<div class="login-container">
+    <div class="login-card">
+      <div class="login-left">
+        <div class="login-content">
+          <h1 class="welcome-text">University Restaurant</h1>
+          <p class="slogan">Delicious meals, inspiring spaces</p>
+          <div class="food-animation">
+            <!-- SVG food icons that will be animated with JS -->
+            <svg class="food-icon" viewBox="0 0 24 24">
+              <path d="M18.06 23H19.72C20.56 23 21.25 22.35 21.35 21.53L23 5.05H18V1H16.03V5.05H11.06L11.36 7.39C13.07 7.86 14.67 8.71 15.94 9.88C17.45 11.29 18.5 13.14 18.88 15.23L18.06 23M1 22V21H16.03V22C16.03 22.54 15.58 23 15 23H2C1.45 23 1 22.54 1 22M16.03 15C16.03 7 1 7 1 15H16.03Z" />
+            </svg>
+            <svg class="food-icon" viewBox="0 0 24 24">
+              <path d="M15.5,21L14,8H16.23L15.1,3.46L16.84,3L18.09,8H22L20.5,21H15.5M5,11H10A3,3 0 0,1 13,14H2A3,3 0 0,1 5,11M13,18V21H2V18H13M3,15H12V17H3V15Z" />
+            </svg>
+            <svg class="food-icon" viewBox="0 0 24 24">
+              <path d="M12,3C8,3 4,5 4,9C4,11.5 5.25,13.2 7,14.6V22H9V16H11V22H13V16H15V22H17V14.6C18.8,13.2 20,11.5 20,9C20,5 16,3 12,3M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5Z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="login-right">
+        <div class="login-form-container">
+          <div class="logo-container">
+            <div class="university-logo">
+              <span>U</span>
+            </div>
+          </div>
+          <h2>Log In</h2>
+          <p class="form-subtitle">Welcome back! Please enter your details</p>
+          
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group" [ngClass]="{'has-error': isSubmitted && formControls['email'].errors}">
+              <label for="email">Email</label>
+              <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input 
+                  type="email" 
+                  id="email" 
+                  formControlName="email" 
+                  placeholder="Enter your email"
+                  [ngClass]="{'invalid-input': isSubmitted && formControls['email'].errors}"
+                >
+              </div>
+              <div class="error-message" *ngIf="isSubmitted && formControls['email'].errors">
+                <span *ngIf="formControls['email'].errors['required']">Email is required</span>
+                <span *ngIf="formControls['email'].errors['email']">Please enter a valid email</span>
+              </div>
+            </div>
+            
+            <div class="form-group" [ngClass]="{'has-error': isSubmitted && formControls['password'].errors}">
+              <label for="password">Password</label>
+              <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input 
+                  [type]="showPassword ? 'text' : 'password'" 
+                  id="password" 
+                  formControlName="password" 
+                  placeholder="Enter your password"
+                  [ngClass]="{'invalid-input': isSubmitted && formControls['password'].errors}"
+                >
+                <i 
+                  [class]="showPassword ? 'fas fa-eye-slash password-toggle' : 'fas fa-eye password-toggle'"
+                  (click)="togglePasswordVisibility()"
+                ></i>
+              </div>
+              <div class="error-message" *ngIf="isSubmitted && formControls['password'].errors">
+                <span *ngIf="formControls['password'].errors['required']">Password is required</span>
+                <span *ngIf="formControls['password'].errors['minlength']">Password must be at least 6 characters</span>
+              </div>
+            </div>
+            
+            <div class="form-options">
+              <div class="remember-me">
+                <input type="checkbox" id="remember" formControlName="rememberMe">
+                <label for="remember">Remember me</label>
+              </div>
+              <a href="javascript:void(0)" class="forgot-password" routerLink="/forgot-password">Forgot password?</a>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="login-button" 
+              [disabled]="loading"
+            >
+              <span *ngIf="!loading">Log In</span>
+              <div *ngIf="loading" class="spinner"></div>
+            </button>
+          </form>
+          
+          <div class="login-divider">
+            <span>OR</span>
+          </div>
+          
+          <button class="google-button" routerLink="/signup">
+            <i class="fab fa-google"></i>
+            Sign 
+          </button>
+          
+          <a href="javascript:void(0)" class="forgot-password">signup</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="alert-container" *ngIf="errorMessage">
+    <div class="alert alert-danger" [@fadeInOut]>
+      <i class="fas fa-exclamation-circle"></i>
+      {{ errorMessage }}
+      <button class="close-btn" (click)="clearError()">×</button>
+    </div>
+  </div>

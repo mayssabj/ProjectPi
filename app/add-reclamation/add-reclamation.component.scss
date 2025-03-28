@@ -1,0 +1,263 @@
+// Variables for color scheme, typography, spacing, and form styles
+$primary-color: #5f63f2;
+$accent-color: #28a745;
+$error-color: #dc3545;
+$neutral-color: #6c757d;
+$background-color: #f4f6f9;
+$card-bg-color: #ffffff;
+$border-radius: 12px;
+$font-family: 'Poppins', Arial, sans-serif;
+$transition-speed: 0.3s;
+$input-bg-color: #ffffff;
+$input-border-color: #ced4da;
+$input-focus-border-color: $primary-color;
+$input-hover-bg-color: #f8f9fa;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+// Utility mixins for consistent styling
+@mixin box-shadow($color, $blur: 10px, $spread: 2px) {
+  box-shadow: 0 4px $blur $color, 0 2px $spread $color;
+}
+
+@mixin button-style($bg-color, $hover-bg-color) {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all $transition-speed ease;
+  background-color: $bg-color;
+  color: white;
+
+  &:hover {
+    background-color: $hover-bg-color;
+  }
+}
+
+// Main container for the form
+.reclamation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  background-color: $background-color;
+  min-height: 100vh;
+
+  .reclamation-form-wrapper {
+    background-color: $card-bg-color;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 20px $shadow-color;
+    width: 100%;
+    max-width: 600px;
+    font-family: $font-family;
+
+    .form-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .reclamation-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      // Input fields styles
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .form-label {
+          font-size: 14px;
+          font-weight: 500;
+          color: $neutral-color;
+        }
+
+        .form-control {
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid $input-border-color;
+          border-radius: $border-radius;
+          background-color: $input-bg-color;
+          transition: border-color $transition-speed ease, background-color $transition-speed ease;
+
+          &:focus {
+            outline: none;
+            border-color: $input-focus-border-color;
+            background-color: #fff;
+          }
+
+          &:hover {
+            background-color: $input-hover-bg-color;
+          }
+        }
+
+        .error-messages {
+          margin-top: 5px;
+          font-size: 12px;
+          color: $error-color;
+
+          .error {
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      // Submit and Cancel buttons
+      .form-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        .btn {
+          @include button-style($primary-color, darken($primary-color, 10%));
+          padding: 12px 30px;
+          width: 48%;
+        }
+
+        .btn-cancel {
+          @include button-style(#ddd, darken(#ddd, 10%));
+        }
+
+        .btn-submit:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes inputFocus {
+  0% { 
+    box-shadow: 0 0 0 0 rgba($primary-color, 0);
+  }
+  100% { 
+    box-shadow: 0 0 0 4px rgba($primary-color, 0.2);
+  }
+}
+
+@keyframes buttonPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.reclamation-container {
+  // Add a subtle background gradient
+  background: linear-gradient(135deg, $background-color, lighten($background-color, 3%));
+
+  .reclamation-form-wrapper {
+    // Enhanced card effect
+    @include box-shadow(rgba($primary-color, 0.1), 25px, 5px);
+    transition: all $transition-speed ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      @include box-shadow(rgba($primary-color, 0.2), 30px, 8px);
+    }
+
+    .form-title {
+      // Animated title entrance
+      animation: fadeIn 0.6s ease forwards;
+      background: linear-gradient(45deg, $primary-color, darken($primary-color, 20%));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .reclamation-form {
+      .form-group {
+        .form-control {
+          // Enhanced input interactions
+          &:focus {
+            animation: inputFocus 0.5s ease-in-out;
+            @include box-shadow(rgba($primary-color, 0.2), 10px, 2px);
+          }
+
+          &:hover {
+            border-color: $primary-color;
+            transition: border-color $transition-speed ease;
+          }
+        }
+
+        // Animated error messages
+        .error-messages {
+          .error {
+            animation: fadeIn 0.3s ease forwards;
+            color: $error-color;
+            font-weight: 500;
+          }
+        }
+      }
+
+      // Button enhancements
+      .form-actions {
+        .btn {
+          position: relative;
+          overflow: hidden;
+          transition: all $transition-speed ease;
+
+          &:hover {
+            animation: buttonPulse 0.5s ease;
+            
+            // Add subtle hover effect
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                120deg, 
+                transparent, 
+                rgba(255,255,255,0.3), 
+                transparent
+              );
+              transition: all $transition-speed ease;
+              transform: skewX(-15deg);
+            }
+
+            &:hover::after {
+              left: 120%;
+            }
+          }
+        }
+
+        // Disabled state styling
+        .btn-submit:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .reclamation-container {
+    .reclamation-form-wrapper {
+      margin: 0 15px;
+      padding: 20px;
+
+      .form-actions {
+        flex-direction: column;
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

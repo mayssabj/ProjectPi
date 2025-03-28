@@ -1,0 +1,180 @@
+<div class="profile-container">
+  <div class="profile-sidebar">
+    <div class="profile-avatar">
+      <div class="avatar-wrapper">
+        <img 
+          [src]="user.avatarUrl || '/assets/default-avatar.png'" 
+          alt="Profile Picture"
+        >
+        <input 
+          type="file" 
+          #avatarInput 
+          (change)="uploadAvatar($event)" 
+          class="avatar-upload-input"
+        >
+        <button 
+          class="edit-avatar-btn" 
+          (click)="avatarInput.click()"
+        >
+          <i class="icon-edit"></i>
+        </button>
+      </div>
+      <div class="profile-stats">
+        <div class="stat">
+          <span class="stat-number">22</span>
+          <span class="stat-label">Friends</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Photos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">89</span>
+          <span class="stat-label">Comments</span>
+        </div>
+      </div>
+      <div class="profile-actions">
+        <button class="btn btn-connect">Connect</button>
+        <button class="btn btn-message">Message</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-main">
+    <div class="profile-header">
+      <div class="header-actions">
+        <button 
+          *ngIf="!editMode" 
+          (click)="toggleEditMode()" 
+          class="btn btn-edit"
+        >
+          Edit Profile
+        </button>
+        <div *ngIf="editMode" class="edit-buttons">
+          <button 
+            (click)="saveChanges()" 
+            class="btn btn-save"
+            [disabled]="profileForm.invalid"
+          >
+            Save
+          </button>
+          <button 
+            (click)="cancelEdit()" 
+            class="btn btn-cancel"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+
+      <h1 class="profile-name">
+        <ng-container *ngIf="!editMode">
+          {{ user.nom }}, {{ user.age }}
+        </ng-container>
+        <input 
+          *ngIf="editMode" 
+          [formControl]="getFormControl('nom')"
+          class="edit-input"
+          placeholder="Full Name"
+        >
+      </h1>
+      <p class="profile-title">
+        <ng-container *ngIf="!editMode">
+          {{ user.role }} - {{ user.email }}
+        </ng-container>
+        <ng-container *ngIf="editMode">
+          <select 
+            [formControl]="getFormControl('role')"
+            class="edit-input"
+          >
+            <option *ngFor="let option of roleOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+          <input 
+            *ngIf="editMode" 
+            [formControl]="getFormControl('email')"
+            class="edit-input"
+            placeholder="Email"
+          >
+        </ng-container>
+      </p>
+      <p class="profile-location">
+        <i class="icon-location"></i> 
+        Bucharest, Romania
+      </p>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+
+    <div class="profile-details">
+      <div class="detail-section">
+        <h2>User Information</h2>
+        <div class="detail-grid">
+          <div class="detail-item">
+            <label>Username</label>
+            <ng-container *ngIf="!editMode">
+              <span>{{ user.nom }}</span>
+            </ng-container>
+            <input 
+              *ngIf="editMode" 
+              [formControl]="getFormControl('nom')"
+              class="edit-input"
+            >
+          </div>
+          <div class="detail-item">
+            <label>Email Address</label>
+            <ng-container *ngIf="!editMode">
+              <span>{{ user.email }}</span>
+            </ng-container>
+            <input 
+              *ngIf="editMode" 
+              [formControl]="getFormControl('email')"
+              class="edit-input"
+            >
+          </div>
+          <div class="detail-item">
+            <label>First Name</label>
+            <ng-container *ngIf="!editMode">
+              <span>{{ user.nom.split(' ')[0] }}</span>
+            </ng-container>
+            <input 
+              *ngIf="editMode" 
+              [formControl]="getFormControl('nom')"
+              class="edit-input"
+            >
+          </div>
+          <div class="detail-item">
+            <label>Last Name</label>
+            <ng-container *ngIf="!editMode">
+              <span>{{ user.nom.split(' ')[1] || '' }}</span>
+            </ng-container>
+            <input 
+              *ngIf="editMode" 
+              [formControl]="getFormControl('nom')"
+              class="edit-input"
+            >
+          </div>
+          <div class="detail-item">
+            <label>Address</label>
+            <span>Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09</span>
+          </div>
+          <div class="detail-item">
+            <label>Age</label>
+            <ng-container *ngIf="!editMode">
+              <span>{{ user.age }}</span>
+            </ng-container>
+            <input 
+              *ngIf="editMode" 
+              type="number"
+              [formControl]="getFormControl('age')"
+              class="edit-input"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

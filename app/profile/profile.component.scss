@@ -1,0 +1,241 @@
+// Color Variables
+$primary-blue: #5964E7;
+$background-light: #F4F5F9;
+$text-dark: #28293D;
+$text-gray: #8B8B8B;
+$error-red: #dc3545;
+
+// Base Styles
+body {
+  background-color: $background-light;
+  font-family: 'Inter', sans-serif;
+  color: $text-dark;
+}
+
+.profile-container {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.profile-sidebar {
+  width: 350px;
+  background: linear-gradient(135deg, $primary-blue 0%, #5CAFFC 100%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+
+  .avatar-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .avatar-upload-input {
+      display: none;
+    }
+
+    .edit-avatar-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: rgba(255,255,255,0.4);
+      }
+
+      i {
+        color: white;
+      }
+    }
+  }
+
+  .profile-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    width: 100%;
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .stat-number {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.7);
+      }
+    }
+  }
+
+  .profile-actions {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+
+    .btn {
+      flex-grow: 1;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.btn-connect {
+        background-color: white;
+        color: $primary-blue;
+      }
+
+      &.btn-message {
+        background-color: rgba(255,255,255,0.2);
+        color: white;
+      }
+    }
+  }
+}
+
+.profile-main {
+  flex-grow: 1;
+  padding: 30px;
+
+  .header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+    .btn-edit, .edit-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.btn-edit {
+        background-color: $primary-blue;
+        color: white;
+      }
+
+      &.btn-save {
+        background-color: $primary-blue;
+        color: white;
+
+        &:disabled {
+          background-color: lighten($primary-blue, 30%);
+          cursor: not-allowed;
+        }
+      }
+
+      &.btn-cancel {
+        background-color: #f8f9fa;
+        color: $text-gray;
+      }
+    }
+  }
+
+  .profile-header {
+    border-bottom: 2px solid #EAEAEA;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    .profile-name {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-title {
+      color: $text-gray;
+      margin-bottom: 10px;
+    }
+
+    .profile-location {
+      color: $text-gray;
+      display: flex;
+      align-items: center;
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    .error-message {
+      color: $error-red;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .profile-details {
+    .detail-section {
+      h2 {
+        font-size: 1.2rem;
+        color: $text-dark;
+        margin-bottom: 20px;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        .detail-item {
+          label {
+            display: block;
+            color: $text-gray;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+          }
+
+          span {
+            font-size: 1rem;
+            color: $text-dark;
+            font-weight: 500;
+          }
+
+          .edit-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #EAEAEA;
+            border-radius: 6px;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

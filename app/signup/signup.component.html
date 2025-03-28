@@ -1,0 +1,157 @@
+<div class="login-container">
+  <div class="login-card extended-form">
+    <div class="login-left">
+      <div class="login-content">
+        <h1 class="welcome-text">University Restaurant</h1>
+        <p class="slogan">Join our team, make a difference</p>
+        <div class="food-animation">
+          <svg class="food-icon" viewBox="0 0 24 24">
+            <path d="M18.06 23H19.72C20.56 23 21.25 22.35 21.35 21.53L23 5.05H18V1H16.03V5.05H11.06L11.36 7.39C13.07 7.86 14.67 8.71 15.94 9.88C17.45 11.29 18.5 13.14 18.88 15.23L18.06 23M1 22V21H16.03V22C16.03 22.54 15.58 23 15 23H2C1.45 23 1 22.54 1 22M16.03 15C16.03 7 1 7 1 15H16.03Z" />
+          </svg>
+          <svg class="food-icon" viewBox="0 0 24 24">
+            <path d="M15.5,21L14,8H16.23L15.1,3.46L16.84,3L18.09,8H22L20.5,21H15.5M5,11H10A3,3 0 0,1 13,14H2A3,3 0 0,1 5,11M13,18V21H2V18H13M3,15H12V17H3V15Z" />
+          </svg>
+          <svg class="food-icon" viewBox="0 0 24 24">
+            <path d="M12,3C8,3 4,5 4,9C4,11.5 5.25,13.2 7,14.6V22H9V16H11V22H13V16H15V22H17V14.6C18.8,13.2 20,11.5 20,9C20,5 16,3 12,3M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5Z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="login-right">
+      <div class="login-form-container">
+        <div class="logo-container">
+          <div class="university-logo">
+            <span>U</span>
+          </div>
+        </div>
+        <h2>Team Member Registration</h2>
+        <p class="form-subtitle">Join our diverse and talented team!</p>
+        
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <!-- Profile Image Upload -->
+          <div class="form-group image-upload">
+            <label>Profile Image</label>
+            <div class="image-upload-container">
+              <input 
+                type="file" 
+                id="profileImage" 
+                (change)="onImageSelected($event)"
+                accept="image/*"
+                class="file-input"
+              >
+              <div class="image-preview">
+                <img [src]="imagePreview || '/assets/default-avatar.png'" alt="Profile Preview">
+                <div class="upload-overlay">
+                  <i class="fas fa-camera"></i>
+                  <span>Upload</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Name Input -->
+          <div class="form-group">
+            <label for="nom">Full Name</label>
+            <div class="input-container">
+              <i class="fas fa-user"></i>
+              <input 
+                type="text" 
+                id="nom" 
+                formControlName="nom" 
+                placeholder="Enter your full name"
+              >
+            </div>
+            <div class="error-message" *ngIf="isSubmitted && formControls['nom'].errors">
+              <span *ngIf="formControls['nom'].errors['required']">Name is required</span>
+            </div>
+          </div>
+
+          <!-- Email Input -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="input-container">
+              <i class="fas fa-envelope"></i>
+              <input 
+                type="email" 
+                id="email" 
+                formControlName="email" 
+                placeholder="Enter your email"
+              >
+            </div>
+            <div class="error-message" *ngIf="isSubmitted && formControls['email'].errors">
+              <span *ngIf="formControls['email'].errors['required']">Email is required</span>
+              <span *ngIf="formControls['email'].errors['email']">Please enter a valid email</span>
+            </div>
+          </div>
+
+          <!-- Age Input -->
+          <div class="form-group">
+            <label for="age">Age</label>
+            <div class="input-container">
+              <i class="fas fa-calendar"></i>
+              <input 
+                type="number" 
+                id="age" 
+                formControlName="age" 
+                placeholder="Enter your age"
+                min="18" max="65"
+              >
+            </div>
+            <div class="error-message" *ngIf="isSubmitted && formControls['age'].errors">
+              <span *ngIf="formControls['age'].errors['required']">Age is required</span>
+              <span *ngIf="formControls['age'].errors['min']">Must be at least 18</span>
+              <span *ngIf="formControls['age'].errors['max']">Maximum age is 65</span>
+            </div>
+          </div>
+
+          <!-- Role Selection -->
+          <div class="form-group">
+            <label>Select Role</label>
+            <div class="role-selector">
+              <div 
+                *ngFor="let roleOption of roleOptions" 
+                class="role-option"
+                [class.selected]="formControls['role'].value === roleOption"
+                (click)="selectRole(roleOption)"
+              >
+                <i [class]="getRoleIcon(roleOption)"></i>
+                <span>{{ roleOption }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-container">
+              <i class="fas fa-lock"></i>
+              <input 
+                [type]="showPassword ? 'text' : 'password'" 
+                id="password" 
+                formControlName="password" 
+                placeholder="Create a strong password"
+              >
+              <i 
+                [class]="showPassword ? 'fas fa-eye-slash password-toggle' : 'fas fa-eye password-toggle'"
+                (click)="togglePasswordVisibility()"
+              ></i>
+            </div>
+            <div class="password-strength" *ngIf="formControls['password'].value">
+              <div class="strength-bar" [ngClass]="getPasswordStrengthClass()"></div>
+              <span class="strength-text">{{ getPasswordStrengthText() }}</span>
+            </div>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="login-button" 
+            [disabled]="loading"
+          >
+            <span *ngIf="!loading">Join Our Team</span>
+            <div *ngIf="loading" class="spinner"></div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
