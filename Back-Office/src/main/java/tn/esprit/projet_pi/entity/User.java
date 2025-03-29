@@ -1,9 +1,12 @@
 package tn.esprit.projet_pi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,6 +30,13 @@ public class User {
     private Boolean is_verified;
     @Column(unique = true)
     private String resetToken;
+    @OneToMany(mappedBy = "createdBy")
+    @JsonIgnore
+    private List<Menu> menus;
+
+    @OneToMany(mappedBy = "addedBy")
+    @JsonIgnore
+    private List<Plat> plats;
 
     public String getResetToken() {
         return resetToken;
